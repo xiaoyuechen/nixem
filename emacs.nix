@@ -20,7 +20,7 @@ emacs-overlay: { pkgs, ... }:
 
   services.emacs = {
     enable = true;
-    package = with pkgs; ((emacsPackagesFor emacs-unstable).emacsWithPackages (epkgs: [ epkgs.vterm ]));
+    package = with pkgs; ((emacsPackagesFor emacs-git).emacsWithPackages (epkgs: [ epkgs.vterm ]));
     defaultEditor = true;
   };
 }
