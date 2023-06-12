@@ -157,7 +157,7 @@
             programs.steam.enable = true;
 
             xdg.mime.defaultApplications = {
-              "application/pdf" = "okular.desktop";
+              "application/pdf" = "org.kde.okular.desktop";
             };
 
             # This value determines the NixOS release from which the default
