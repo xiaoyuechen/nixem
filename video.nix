@@ -13,17 +13,17 @@
 # You should have received a copy of the GNU General Public License
 # along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
-{ pkgs, emacs-overlay, ... }:
+{ ... }:
 
 {
-  nixpkgs.overlays = [ emacs-overlay.overlays.default ];
-
-  services.emacs = {
-    enable = true;
-    package = with pkgs; (emacsWithPackagesFromUsePackage {
-      config = /home/xchen/.emacs.d/init.el;
-      package = emacs-git;
-    });
-    defaultEditor = true;
+  # Use the evil nvidia driver
+  nixpkgs.config.allowUnfree = true;
+  services.xserver.videoDrivers = [ "nvidia" ];
+  hardware.opengl.enable = true;
+  hardware.opengl.driSupport32Bit = true;
+  hardware.nvidia.prime = {
+    sync.enable = true;
+    intelBusId = "PCI:0:2:0";
+    nvidiaBusId = "PCI:1:0:0";
   };
 }

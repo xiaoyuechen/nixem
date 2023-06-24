@@ -13,19 +13,12 @@
 # You should have received a copy of the GNU General Public License
 # along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
-{ environment, pkgs, services, systemd, ... }:
+{ ... }:
 
 {
   services.xserver.windowManager.xmonad = {
     enable = true;
     enableContribAndExtras = true;
     extraPackages = haskellPackages: [ haskellPackages.taffybar ];
-  };
-
-  systemd.user.services.status-notifier-watcher = {
-    path = with pkgs; [ haskellPackages.status-notifier-item ];
-    script = "status-notifier-watcher";
-    wantedBy = [ "graphical-session.target" ];
-    partOf = [ "graphical-session.target" ];
   };
 }
