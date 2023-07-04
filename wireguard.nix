@@ -1,4 +1,4 @@
-{ networking, ... }:
+{ ... }:
 
 {
   networking.wg-quick.interfaces = {
