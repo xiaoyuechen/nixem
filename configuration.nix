@@ -35,6 +35,7 @@
 
   # Set your time zone.
   time.timeZone = "Europe/Stockholm";
+  # time.timeZone = "Asia/Shanghai";
 
   # Select internationalisation properties.
   i18n = {
@@ -53,6 +54,8 @@
   documentation.man.generateCaches = true;
   documentation.man.man-db.enable = true;
   documentation.dev.enable = true;
+
+  # nix.settings.substituters = [ "https://mirrors.cernet.edu.cn/nix-channels/store" ];
 
   # Enable the X11 windowing system.
   services.xserver = {
@@ -88,6 +91,7 @@
 
   sound.enable = true;
   hardware.pulseaudio.enable = true;
+  hardware.bluetooth.enable = true;
 
   hardware.i2c.enable = true;
 
@@ -129,6 +133,7 @@
     nextcloud-client
     taffybar
     haskellPackages.status-notifier-item
+    haskellPackages.hoogle
     pulsemixer
     direnv
     ddcutil
@@ -143,6 +148,7 @@
     texlive.combined.scheme-full
     authy
     virt-manager
+    tor-browser-bundle-bin
   ];
 
   programs.gnupg.agent = {
