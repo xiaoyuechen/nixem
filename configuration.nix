@@ -67,7 +67,7 @@
     autoRepeatInterval = 30;
   };
 
-  fonts.fonts = with pkgs; [
+  fonts.packages = with pkgs; [
     noto-fonts
     noto-fonts-cjk
     noto-fonts-cjk-serif
@@ -160,11 +160,6 @@
   programs.git.enable = true;
   programs.seahorse.enable = true;
   programs.steam.enable = true;
-  programs.nm-applet = {
-    enable = true;
-    indicator = true;
-  };
-  programs.dconf.enable = true;
 
   xdg.mime.defaultApplications = {
     "application/pdf" = "org.kde.okular.desktop";
