@@ -116,6 +116,7 @@
   environment.systemPackages = with pkgs; [
     gnome.adwaita-icon-theme
     gnome.gnome-themes-extra
+    gnome.gnome-screenshot
     gnomeExtensions.appindicator
     xscreensaver
     brightnessctl
@@ -129,7 +130,7 @@
     isync
     fetchmail_7
     libsecret
-    ispell
+    (aspellWithDicts (dicts: with dicts; [ en en-computers en-science sv ]))
     nextcloud-client
     taffybar
     haskellPackages.status-notifier-item
@@ -149,6 +150,10 @@
     authy
     virt-manager
     tor-browser-bundle-bin
+    skypeforlinux
+    telegram-desktop
+    transmission-gtk
+    libreoffice
   ];
 
   programs.gnupg.agent = {
