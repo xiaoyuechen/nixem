@@ -22,7 +22,7 @@
     enable = true;
     package = with pkgs; (emacsWithPackagesFromUsePackage {
       config = /home/xchen/.emacs.d/init.el;
-      package = emacs-git;
+      package = emacs-unstable;
     });
     defaultEditor = true;
   };

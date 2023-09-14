@@ -52,7 +52,6 @@
   }];
 
   documentation.man.generateCaches = true;
-  documentation.man.man-db.enable = true;
   documentation.dev.enable = true;
 
   # nix.settings.substituters = [ "https://mirrors.cernet.edu.cn/nix-channels/store" ];
