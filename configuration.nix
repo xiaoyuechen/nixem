@@ -122,12 +122,14 @@
     okular
     firefox
     glibcInfo
+    gnumake
     autoconf
     gcc
+    gdb
+    clang-tools_16
     rofi
     mu
     isync
-    fetchmail_7
     libsecret
     (aspellWithDicts (dicts: with dicts; [ en en-computers en-science sv ]))
     nextcloud-client
@@ -148,11 +150,11 @@
     texlive.combined.scheme-full
     authy
     virt-manager
-    tor-browser-bundle-bin
     skypeforlinux
     telegram-desktop
     transmission-gtk
     libreoffice
+    steam
   ];
 
   programs.gnupg.agent = {
@@ -163,7 +165,6 @@
 
   programs.git.enable = true;
   programs.seahorse.enable = true;
-  programs.steam.enable = true;
 
   xdg.mime.defaultApplications = {
     "application/pdf" = "org.kde.okular.desktop";
