@@ -78,6 +78,7 @@
   security.pam.services.lightdm.enableGnomeKeyring = true;
   security.pam.services.lightdm.gnupg.enable = true;
   services.upower.enable = true;
+  programs.git.enable = true;
 
   sound.enable = true;
   hardware.pulseaudio.enable = true;
