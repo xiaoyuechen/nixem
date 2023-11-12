@@ -402,11 +402,6 @@
   (add-to-list 'vterm-tramp-shells '("ssh" "bash"))
   (add-to-list 'vterm-tramp-shells '("sudo" "bash")))
 
-(use-package eshell-vterm
-  :ensure t
-  :init
-  (eshell-vterm-mode))
-
 (use-package eshell
   :commands (spawn-eshell)
   :config
@@ -418,10 +413,11 @@
            (buffer (eshell)))
       (set-window-dedicated-p (get-buffer-window buffer) t)))
 
-  (setenv "PAGER" "")
   (dolist (module '(eshell-tramp eshell-elecslash))
     (add-to-list 'eshell-modules-list module))
+
   (setq eshell-history-size 10000)
+
   (defun dynamic-eshell-buffer-name ()
     (format "*eshell: %s*"
             (abbreviate-file-name (directory-file-name
@@ -434,12 +430,8 @@
               (lambda (old-eshell &rest args)
                 (let ((eshell-buffer-name (dynamic-eshell-buffer-name)))
                   (apply old-eshell args))))
-  (setq eshell-destroy-buffer-when-process-dies t)
 
-  (dolist (command '("vim" "vifm" "nmtui" "pulsemixer" "gh"))
-    (add-to-list 'eshell-visual-commands command))
-  (dolist (subcommand '(("aur" "sync")))
-    (add-to-list 'eshell-visual-subcommands subcommand))
+  (setq eshell-destroy-buffer-when-process-dies t)
 
   :hook
   (eshell-mode . rename-eshell-buffer)
@@ -455,10 +447,10 @@
 
 (use-package bash-completion
   :ensure t
-  :init
+  :after (:any shell eshell)
+  :config
   (add-to-list 'shell-dynamic-complete-functions 'bash-completion-dynamic-complete)
 
-  :config
   (defun bash-completion-capf-nonexclusive ()
   "Bash completion function for `completion-at-point-functions'.
 
