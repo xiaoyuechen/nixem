@@ -13,27 +13,17 @@
 # You should have received a copy of the GNU General Public License
 # along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
-{ config, pkgs, emacs-overlay, ... }:
+{ ... }:
 
 {
-  nixpkgs.overlays = [ emacs-overlay.overlays.default ];
+  programs.mbsync.enable = true;
+  home.file.".mbsyncrc".source = ./mbsyncrc;
 
-  programs.emacs = {
-    enable = true;
-    package = with pkgs; (emacsWithPackagesFromUsePackage {
-      config = ./emacs.el;
-      defaultInitFile = true;
-      package = emacs-unstable.overrideAttrs (old: {
-        patches = [ ./eshell.patch ];
-      });
-    });
-  };
+  programs.mu.enable = true;
 
-  services.emacs = {
-    enable = true;
-    package = config.programs.emacs.package;
-    defaultEditor = true;
-    client.enable = true;
-    startWithUserSession = "graphical";
-  };
+  programs.emacs.extraConfig = builtins.readFile ./mu4e.el;
+  programs.emacs.extraPackages = epkgs: with epkgs; [
+    mu4e
+    mu4e-alert
+  ];
 }

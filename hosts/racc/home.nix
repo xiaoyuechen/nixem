@@ -20,6 +20,7 @@
     ../../common/picom
     ../../common/xmonad
     ../../common/emacs
+    ../../common/mail
   ];
 
   programs.home-manager.enable = true;
@@ -77,7 +78,6 @@
     gdb
     clang-tools_16
     rofi
-    mu
     isync
     libsecret
     (aspellWithDicts (dicts: with dicts; [ en en-computers en-science sv ]))
