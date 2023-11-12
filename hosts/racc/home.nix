@@ -34,6 +34,7 @@
     userEmail = "xchen@vvvu.org";
   };
 
+  programs.gpg.enable = true;
   services.gpg-agent = {
     enable = true;
     enableSshSupport = true;
