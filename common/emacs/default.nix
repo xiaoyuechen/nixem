@@ -22,7 +22,6 @@
     enable = true;
     package = with pkgs; (emacsWithPackagesFromUsePackage {
       config = ./emacs.el;
-      defaultInitFile = true;
       package = emacs-unstable.overrideAttrs (old: {
         patches = [ ./eshell.patch ];
       });
@@ -36,4 +35,6 @@
     client.enable = true;
     startWithUserSession = "graphical";
   };
+
+  home.file.".emacs.d/init.el".source = ./emacs.el;
 }
