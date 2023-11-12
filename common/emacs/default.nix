@@ -13,7 +13,7 @@
 # You should have received a copy of the GNU General Public License
 # along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
-{ self, pkgs, emacs-overlay, ... }:
+{ config, pkgs, emacs-overlay, ... }:
 
 {
   nixpkgs.overlays = [ emacs-overlay.overlays.default ];
@@ -28,7 +28,7 @@
 
   services.emacs = {
     enable = true;
-    package = self.programs.emacs.package;
+    package = config.programs.emacs.package;
     defaultEditor = true;
     client.enable = true;
   };
