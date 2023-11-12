@@ -20,6 +20,25 @@
     ../../common/emacs
   ];
 
+  programs.home-manager.enable = true;
+
+  programs.man.generateCaches = true;
+  programs.info.enable = true;
+
+  programs.git = {
+    enable = true;
+    userName = "Xiaoyue Chen";
+    userEmail = "xchen@vvvu.org";
+  };
+
+  services.gpg-agent = {
+    enable = true;
+    enableSshSupport = true;
+    pinentryFlavor = "gnome3";
+  };
+
+  xdg.enable = true;
+
   nixpkgs.config.allowUnfreePredicate = pkg:
     builtins.elem (lib.getName pkg) [
       "steam"
