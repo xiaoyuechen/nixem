@@ -13,17 +13,15 @@
 # You should have received a copy of the GNU General Public License
 # along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
-{ pkgs, ... }: {
+{ pkgs, lib, home-manager, emacs-overlay, ... }: {
   imports =
     [
       ./hardware-configuration.nix
       ./video.nix
-      ./cachix.nix
       ./autorandr.nix
-      ./picom.nix
-      ./xmonad.nix
-      ./emacs.nix
       ./wireguard.nix
+      ../../common/fonts
+      home-manager.nixosModules.default
     ];
 
   # Use the systemd-boot EFI boot loader.
@@ -51,6 +49,8 @@
     size = 16 * 1024;
   }];
 
+  nix.settings.experimental-features = [ "nix-command" "flakes" ];
+
   documentation.man.generateCaches = true;
   documentation.dev.enable = true;
 
@@ -66,21 +66,12 @@
     autoRepeatInterval = 30;
   };
 
-  fonts.packages = with pkgs; [
-    noto-fonts
-    noto-fonts-cjk
-    noto-fonts-cjk-serif
-    source-han-sans
-    source-han-serif
-    noto-fonts-emoji
-    liberation_ttf
-    fira-code
-    fira-code-symbols
-    mplus-outline-fonts.githubRelease
-    dina-font
-    proggyfonts
-    liberation_ttf
-  ];
+  nixpkgs.config.allowUnfreePredicate = pkg:
+    builtins.elem (lib.getName pkg) [
+      "nvidia-x11"
+      "nvidia-settings"
+      "nvidia-persistenced"
+    ];
 
   services.xserver.displayManager.lightdm.enable = true;
   services.gnome.gnome-keyring.enable = true;
@@ -101,73 +92,10 @@
     extraGroups = [ "wheel" "networkmanager" "libvirtd" ];
   };
 
-  nix.settings.experimental-features = [ "nix-command" "flakes" ];
-
-  environment.sessionVariables = {
-    XDG_CACHE_HOME = "$HOME/.cache";
-    XDG_CONFIG_HOME = "$HOME/.config";
-    XDG_DATA_HOME = "$HOME/.local/share";
-    XDG_STATE_HOME = "$HOME/.local/state";
-  };
-
-  # List packages installed in system profile. To search, run:
-  # $ nix search wget
-  environment.systemPackages = with pkgs; [
-    gnome.adwaita-icon-theme
-    gnome.gnome-themes-extra
-    gnome.gnome-screenshot
-    gnomeExtensions.appindicator
-    xscreensaver
-    brightnessctl
-    okular
-    firefox
-    glibcInfo
-    gnumake
-    autoconf
-    gcc
-    gdb
-    clang-tools_16
-    rofi
-    mu
-    isync
-    libsecret
-    (aspellWithDicts (dicts: with dicts; [ en en-computers en-science sv ]))
-    nextcloud-client
-    taffybar
-    haskellPackages.status-notifier-item
-    haskellPackages.hoogle
-    pulsemixer
-    direnv
-    ddcutil
-    signal-desktop
-    xscreensaver
-    unzip
-    nil
-    nssTools
-    nixops_unstable
-    gimp
-    git-crypt
-    texlive.combined.scheme-full
-    authy
-    virt-manager
-    skypeforlinux
-    telegram-desktop
-    transmission-gtk
-    libreoffice
-    steam
-  ];
-
-  programs.gnupg.agent = {
-    enable = true;
-    enableSSHSupport = true;
-    pinentryFlavor = "gtk2";
-  };
-
-  programs.git.enable = true;
-  programs.seahorse.enable = true;
-
-  xdg.mime.defaultApplications = {
-    "application/pdf" = "org.kde.okular.desktop";
+  home-manager = {
+    useUserPackages = true;
+    extraSpecialArgs = { inherit emacs-overlay; };
+    users.xchen = import ./home.nix;
   };
 
   # This value determines the NixOS release from which the default
