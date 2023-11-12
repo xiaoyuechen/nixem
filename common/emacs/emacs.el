@@ -128,7 +128,8 @@
 
   :bind
   ( :map dired-mode-map
-    ("C-c o" . xdg-open-from-dired)))
+    ("C-c o" . xdg-open-from-dired)
+    ("C-c C-x a" . org-attach-dired-to-subtree)))
 
 (use-package consult
   :ensure t
@@ -531,15 +532,12 @@ when bash-completion fails to match the text at point."
     (add-to-list 'org-capture-templates template))
 
   :bind
-  (("C-c l" . org-store-link)
-   ("C-c a" . my-agenda)
-   ("C-c p" . org-capture)
-   :map dired-mode-map
-   ("C-c C-x a" . org-attach-dired-to-subtree)))
+  ("C-c l" . org-store-link)
+  ("C-c a" . my-agenda)
+  ("C-c p" . org-capture))
 
 (use-package citeproc
-  :ensure t
-  :defer t)
+  :ensure t)
 
 (use-package ox-reveal
   :ensure t
@@ -600,7 +598,7 @@ when bash-completion fails to match the text at point."
 
 (use-package org-roam-ui
   :ensure t
-  :init
+  :config
   (setq org-roam-ui-open-on-start nil))
 
 (use-package vertico
