@@ -13,18 +13,24 @@
 # You should have received a copy of the GNU General Public License
 # along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
-{ pkgs, emacs-overlay, ... }:
+{ self, pkgs, emacs-overlay, ... }:
 
 {
   nixpkgs.overlays = [ emacs-overlay.overlays.default ];
 
-  services.emacs = {
+  programs.emacs = {
     enable = true;
     package = with pkgs; (emacsWithPackagesFromUsePackage {
       config = ./emacs.el;
       package = emacs-unstable;
     });
+  };
+
+  services.emacs = {
+    enable = true;
+    package = self.programs.emacs.package;
     defaultEditor = true;
+    client.enable = true;
   };
 
   xdg.configFile."emacs/init.el".source = ./emacs.el;
