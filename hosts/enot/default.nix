@@ -18,9 +18,10 @@
 {
   imports =
     [
-      ./hardware-configuration.nix
-      ../../common/fonts
       home-manager.nixosModules.default
+      ../../cachix.nix
+      ../../common/fonts
+      ./hardware-configuration.nix
     ];
 
   boot.loader.systemd-boot.enable = true;

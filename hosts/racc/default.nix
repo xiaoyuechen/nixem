@@ -16,12 +16,13 @@
 { pkgs, lib, home-manager, emacs-overlay, ... }: {
   imports =
     [
+      home-manager.nixosModules.default
+      ../../cachix.nix
+      ../../common/fonts
       ./hardware-configuration.nix
       ./video.nix
       ./autorandr.nix
       ./wireguard.nix
-      ../../common/fonts
-      home-manager.nixosModules.default
     ];
 
   # Use the systemd-boot EFI boot loader.
