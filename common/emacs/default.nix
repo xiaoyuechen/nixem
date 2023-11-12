@@ -31,6 +31,7 @@
     package = config.programs.emacs.package;
     defaultEditor = true;
     client.enable = true;
+    startWithUserSession = "graphical";
   };
 
   xdg.configFile."emacs/init.el".source = ./emacs.el;
