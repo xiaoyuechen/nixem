@@ -79,7 +79,6 @@
     gdb
     clang-tools_16
     rofi
-    isync
     libsecret
     (aspellWithDicts (dicts: with dicts; [ en en-computers en-science sv ]))
     haskellPackages.status-notifier-item
