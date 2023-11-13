@@ -20,7 +20,7 @@
     ../../common/picom
     ../../common/xmonad
     ../../common/emacs
-    ../../common/mail
+    ../../common/email
   ];
 
   programs.home-manager.enable = true;
