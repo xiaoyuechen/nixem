@@ -45,6 +45,7 @@
                               (:thread-subject)))
   (setq mu4e-completing-read-function 'completing-read)
   (setq mu4e-get-mail-command "mbsync -a")
+  (setq mu4e-change-filenames-when-moving t)
   (setq mu4e-index-cleanup nil      ;; don't do a full cleanup check
         mu4e-index-lazy-check t)    ;; don't consider up-to-date dirs
   (setq mu4e-hide-index-messages t)
@@ -71,7 +72,7 @@
               (mu4e-sent-folder . "/vvvu/Sent")
               (mu4e-drafts-folder . "/vvvu/Drafts")
               (mu4e-trash-folder . "/vvvu/Trash")
-              (mu4e-refile-folder . nil)
+              (mu4e-refile-folder . "/vvvu/Archive")
               (mu4e-sent-messages-behavior . sent)
               (smtpmail-smtp-server . "smtp.sendgrid.net")
               (smtpmail-servers-requiring-authorization . "smtp.sendgrid.net")
@@ -92,7 +93,7 @@
               (mu4e-sent-folder . "/uu/Sent Items")
               (mu4e-drafts-folder . "/uu/Drafts")
               (mu4e-trash-folder . "/uu/Deleted Items")
-              (mu4e-refile-folder . nil)
+              (mu4e-refile-folder . "/uu/Archive")
               (mu4e-sent-messages-behavior . sent)
               (smtpmail-smtp-server . "mail.uu.se")
               (smtpmail-servers-requiring-authorization . "mail.uu.se")

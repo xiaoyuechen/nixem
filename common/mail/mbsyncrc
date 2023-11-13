@@ -31,7 +31,7 @@ Account uu
 Channel uu
 Far :uu-remote:
 Near :uu-local:
-Patterns "INBOX" "Sent Items" "Deleted Items" "Archive" "Junk Email"
+Patterns "INBOX" "Drafts" "Junk Email" "Sent Items" "Archive" "Deleted Items"
 Create Both
 Expunge Both
 SyncState *
@@ -53,7 +53,8 @@ Account vvvu
 Channel vvvu
 Far :vvvu-remote:
 Near :vvvu-local:
-Patterns "INBOX" "Sent" "Deleted" "Archive" "Junk"
+Patterns "INBOX" "Drafts" "Junk" "Sent" "Archive" "Trash"
 Create Both
+Remove Both
 Expunge Both
 SyncState *
