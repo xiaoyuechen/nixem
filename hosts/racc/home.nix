@@ -92,7 +92,7 @@
     unzip
     nil
     nssTools
-    # nixops_unstable
+    nixops_unstable
     gimp
     git-crypt
     texlive.combined.scheme-full
