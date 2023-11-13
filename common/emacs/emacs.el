@@ -1,4 +1,4 @@
-;;; emacs.el --- My personal Emacs init file          -*- lexical-binding: t; -*-
+;;; init.el --- My personal Emacs init file          -*- lexical-binding: t; -*-
 
 ;; Copyright (C) 2022, 2023  Xiaoyue Chen
 
