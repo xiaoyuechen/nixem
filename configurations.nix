@@ -34,6 +34,8 @@ let
       modules = [
         configModule
         nixem.os
+        { nixem.fonts.enable = true; }
+        { services.fwupd.enable = true; }
         home-manager.nixosModules.default
         homeManagerConfig
         ./cachix.nix
