@@ -48,9 +48,18 @@
     ];
 
   home.packages = with pkgs; [
+    direnv
+    clang-tools_16
     nil
 
+    gnumake.info
+    gcc.info
+    glibcInfo
+    man-pages
+
     firefox
+    okular
+    signal-desktop
     steam
   ];
 
