@@ -34,8 +34,9 @@
     pinentryFlavor = "gtk2";
   };
 
-  nixem.emacs.enable = true;
   nixem.desktopManager.xmonad.enable = true;
+  nixem.emacs.enable = true;
+  nixem.email.enable = true;
 
   nixpkgs.config.allowUnfreePredicate = pkg:
     builtins.elem (lib.getName pkg) [

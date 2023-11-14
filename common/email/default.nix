@@ -59,14 +59,6 @@ with lib;
     programs.mbsync.enable = true;
     programs.mu.enable = true;
 
-    programs.emacs = {
-      extraConfig = builtins.readFile ./mu4e.el;
-      extraPackages = epkgs: with epkgs; [
-        mu4e
-        mu4e-alert
-      ];
-    };
-
     home.packages = with pkgs; [
       libsecret
     ];
