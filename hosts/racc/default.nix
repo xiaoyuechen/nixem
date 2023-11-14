@@ -14,13 +14,12 @@
 # along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 { pkgs, lib, ... }: {
-  imports =
-    [
-      ./hardware-configuration.nix
-      ./video.nix
-      ./autorandr.nix
-      ./wireguard.nix
-    ];
+  imports = [
+    ./hardware-configuration.nix
+    ./video.nix
+    ./autorandr.nix
+    ./wireguard.nix
+  ];
 
   # Use the systemd-boot EFI boot loader.
   boot.loader.systemd-boot.enable = true;
