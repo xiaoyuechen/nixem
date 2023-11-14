@@ -16,12 +16,15 @@
 { config, lib, pkgs, ... }:
 
 with lib;
-{
+
+let cfg = config.nixem.email;
+
+in {
   options = {
     nixem.email.enable = lib.mkEnableOption "email";
   };
 
-  config = lib.mkIf config.nixem.email.enable {
+  config = mkIf cfg.enable {
     accounts.email.accounts = {
       vvvu = {
         primary = true;
