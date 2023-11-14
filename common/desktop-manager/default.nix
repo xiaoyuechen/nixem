@@ -22,7 +22,6 @@ in {
           fcitx5 --enable all &
         '';
 
-        xdg.enable = true;
         nixem.xmonad.enable = true;
         nixem.taffybar.enable = true;
         nixem.picom.enable = true;

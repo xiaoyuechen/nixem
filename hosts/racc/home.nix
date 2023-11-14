@@ -34,6 +34,8 @@
     pinentryFlavor = "gtk2";
   };
 
+  xdg.enable = true;
+
   nixem.desktopManager.xmonad.enable = true;
   nixem.emacs.enable = true;
   nixem.email.enable = true;

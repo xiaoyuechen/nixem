@@ -34,6 +34,8 @@
     pinentryFlavor = "gnome3";
   };
 
+  xdg.enable = true;
+
   nixem.emacs.enable = true;
   nixem.email.enable = true;
 
