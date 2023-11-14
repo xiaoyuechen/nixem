@@ -607,7 +607,7 @@ when bash-completion fails to match the text at point."
   (vertico-mode))
 
 (use-package ffap
-  :config
+  :init
   (ffap-bindings))
 
 (use-package tramp
