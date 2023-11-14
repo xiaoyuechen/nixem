@@ -996,8 +996,7 @@ when bash-completion fails to match the text at point."
                          "Uppsala University"))))))
 
   :hook
-  (mu4e-compose-mode . turn-on-orgtbl)
-  (after-init . (lambda () (mu4e-update-mail-and-index t))))
+  (mu4e-compose-mode . turn-on-orgtbl))
 
 (use-package mu4e-alert
   :ensure t
