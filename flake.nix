@@ -18,7 +18,10 @@
 
       nixosConfigurations.racc = nixpkgs.lib.nixosSystem {
         system = "x86_64-linux";
-        specialArgs = inputs;
+        specialArgs = inputs // {
+          cachix = import ./cachix.nix;
+          nixem = import ./common;
+        };
         modules = [ ./hosts/racc ];
       };
 

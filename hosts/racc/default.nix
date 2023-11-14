@@ -13,17 +13,16 @@
 # You should have received a copy of the GNU General Public License
 # along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
-{ pkgs, lib, home-manager, emacs-overlay, ... }: {
+{ pkgs, lib, home-manager, emacs-overlay, cachix, nixem, ... }: {
   imports =
     [
       home-manager.nixosModules.default
-      ../../cachix.nix
-      ../../common/fonts
+      cachix
       ./hardware-configuration.nix
       ./video.nix
       ./autorandr.nix
       ./wireguard.nix
-    ];
+    ] ++ nixem.osModules;
 
   # Use the systemd-boot EFI boot loader.
   boot.loader.systemd-boot.enable = true;
@@ -44,6 +43,8 @@
   };
 
   console.useXkbConfig = true;
+
+  nixem.fonts.enable = true;
 
   swapDevices = [{
     device = "/var/lib/swapfile";
@@ -97,7 +98,10 @@
 
   home-manager = {
     useUserPackages = true;
-    extraSpecialArgs = { inherit emacs-overlay; };
+    extraSpecialArgs = {
+      inherit emacs-overlay;
+      inherit nixem;
+    };
     users.xchen = import ./home.nix;
   };
 

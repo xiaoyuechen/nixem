@@ -13,15 +13,10 @@
 # You should have received a copy of the GNU General Public License
 # along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
-{ config, pkgs, lib, ... }:
+{ config, pkgs, lib, nixem, ... }:
 
 {
-  imports = [
-    ../../common/picom
-    ../../common/xmonad
-    ../../common/emacs
-    ../../common/email
-  ];
+  imports = nixem.hmModules;
 
   programs.home-manager.enable = true;
 
@@ -41,19 +36,8 @@
     pinentryFlavor = "gtk2";
   };
 
-  xdg.enable = true;
-
-  xsession.enable = true;
-  xsession.preferStatusNotifierItems = true;
-  xsession.profileExtra = ''
-    autorandr -c
-    status-notifier-watcher &
-    fcitx5 --enable all &
-  '';
-
-  services.taffybar.enable = true;
-
-  services.xscreensaver.enable = true;
+  nixem.emacs.enable = true;
+  nixem.desktopManager.xmonad.enable = true;
 
   nixpkgs.config.allowUnfreePredicate = pkg:
     builtins.elem (lib.getName pkg) [
@@ -64,37 +48,27 @@
     ];
 
   home.packages = with pkgs; [
-    gnome.adwaita-icon-theme
-    gnome.gnome-themes-extra
-    gnome.gnome-screenshot
-    gnome.seahorse
-    gnomeExtensions.appindicator
-    brightnessctl
-    okular
-    firefox
     glibcInfo
     gnumake
     autoconf
     gcc
     gdb
-    clang-tools_16
-    rofi
-    libsecret
-    (aspellWithDicts (dicts: with dicts; [ en en-computers en-science sv ]))
-    haskellPackages.status-notifier-item
-    haskellPackages.hoogle
-    pulsemixer
     direnv
-    ddcutil
-    signal-desktop
-    xscreensaver
-    unzip
-    nil
-    nssTools
-    nixops_unstable
-    gimp
+    clang-tools_16
     git-crypt
+    haskellPackages.hoogle
+    haskell-language-server
+    nil
+    unzip
+    nssTools
+    ddcutil
+    nixops_unstable
     texlive.combined.scheme-full
+
+    okular
+    firefox
+    signal-desktop
+    gimp
     virt-manager
     telegram-desktop
     skypeforlinux

@@ -55,7 +55,6 @@ myKeys =
         , ("<XF86MonBrightnessDown>", spawn "brightnessctl s 10%-")
         , ("<XF86KbdBrightnessUp>", spawn "brightnessctl --device='asus::kbd_backlight' s +10%")
         , ("<XF86KbdBrightnessDown>", spawn "brightnessctl --device='asus::kbd_backlight' s 10%-")
-        , ("<XF86Launch4>", spawn "fanboostctl --next")
         ,
                 ( "M-b"
                 , spawn

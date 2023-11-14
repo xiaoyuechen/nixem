@@ -17,30 +17,21 @@
 
 with lib;
 
-let cfg = config.nixem.picom;
+let cfg = config.nixem.rofi;
 
 in {
   options = {
-    nixem.picom.enable = mkEnableOption "picom";
+    nixem.rofi.enable = mkEnableOption "rofi";
   };
 
   config = mkIf cfg.enable {
-    services.picom = {
+    programs.rofi = {
       enable = true;
-      backend = "glx";
-      fade = true;
-      fadeSteps = [ 0.16 0.02 ];
-      fadeDelta = 2;
-      inactiveOpacity = 0.8;
-      opacityRules = [ "100:class_g = 'Rofi'" ];
-      shadow = true;
-      vSync = true;
-
-      settings = {
-        inactive-opacity-override = false;
-        corner-radius = 8;
-        glx-no-stencil = true;
-        shadow-exclude = [ "class_g = 'firefox' && argb" ];
+      font = "mono 10";
+      extraConfig = {
+        modes = "windowcd,drun,run";
+        dpi = 0;
+        kb-accept-custom = "Alt+Return";
       };
     };
   };

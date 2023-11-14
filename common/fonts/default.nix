@@ -13,20 +13,30 @@
 # You should have received a copy of the GNU General Public License
 # along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
-{ pkgs, ... }:
+{ config, lib, pkgs, ... }:
 
-{
-  fonts.packages = with pkgs; [
-    noto-fonts
-    noto-fonts-emoji
-    noto-fonts-cjk-sans
-    noto-fonts-cjk-serif
-    source-han-sans
-    source-han-serif
-    liberation_ttf
-    fira-code
-    fira-code-symbols
-    dina-font
-    proggyfonts
-  ];
+with lib;
+
+let cfg = config.nixem.fonts;
+
+in {
+  options = {
+    nixem.fonts.enable = mkEnableOption "fonts";
+  };
+
+  config = mkIf cfg.enable {
+    fonts.packages = with pkgs; [
+      noto-fonts
+      noto-fonts-emoji
+      noto-fonts-cjk-sans
+      noto-fonts-cjk-serif
+      source-han-sans
+      source-han-serif
+      liberation_ttf
+      fira-code
+      fira-code-symbols
+      dina-font
+      proggyfonts
+    ];
+  };
 }

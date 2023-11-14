@@ -13,13 +13,23 @@
 # You should have received a copy of the GNU General Public License
 # along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
-{ ... }:
+{ config, lib, ... }:
 
-{
-  xsession.windowManager.xmonad = {
-    enable = true;
-    enableContribAndExtras = true;
-    extraPackages = haskellPackages: [ haskellPackages.taffybar ];
-    config = ./xmonad.hs;
+with lib;
+
+let cfg = config.nixem.xmonad;
+
+in {
+  options = {
+    nixem.xmonad.enable = mkEnableOption "xmonad";
+  };
+
+  config = mkIf cfg.enable {
+    xsession.windowManager.xmonad = {
+      enable = true;
+      enableContribAndExtras = true;
+      extraPackages = haskellPackages: [ haskellPackages.taffybar ];
+      config = ./xmonad.hs;
+    };
   };
 }

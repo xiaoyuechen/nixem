@@ -13,51 +13,62 @@
 # You should have received a copy of the GNU General Public License
 # along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
-{ ... }:
+{ config, lib, pkgs, ... }:
 
+with lib;
 {
-  accounts.email.accounts = {
-    vvvu = {
-      primary = true;
-      address = "xchen@vvvu.org";
-      userName = "xchen@vvvu.org";
-      passwordCommand = "secret-tool lookup port imaps user xchen host mail.vvvu.org";
-      imap.host = "mail.vvvu.org";
-      mbsync = {
-        enable = true;
-        create = "both";
-        remove = "both";
-        expunge = "both";
-        patterns = [ "INBOX" "Drafts" "Junk" "Sent" "Archive" "Trash" ];
-      };
-      mu.enable = true;
-    };
-
-    uu = {
-      address = "xiaoyue.chen@it.uu.se";
-      userName = "xiach215";
-      passwordCommand = "secret-tool lookup port imaps user xiach215 host mail.uu.se";
-      imap.host = "mail.uu.se";
-      mbsync = {
-        enable = true;
-        create = "both";
-        remove = "both";
-        expunge = "both";
-        patterns = [ "INBOX" "Drafts" "Junk Email" "Sent Items" "Archive" "Deleted Items" ];
-        extraConfig.account = { AuthMechs = "PLAIN"; };
-      };
-      mu.enable = true;
-    };
+  options = {
+    nixem.email.enable = lib.mkEnableOption "email";
   };
 
-  programs.mbsync.enable = true;
-  programs.mu.enable = true;
+  config = lib.mkIf config.nixem.emacs.enable {
+    accounts.email.accounts = {
+      vvvu = {
+        primary = true;
+        address = "xchen@vvvu.org";
+        userName = "xchen@vvvu.org";
+        passwordCommand = "secret-tool lookup port imaps user xchen host mail.vvvu.org";
+        imap.host = "mail.vvvu.org";
+        mbsync = {
+          enable = true;
+          create = "both";
+          remove = "both";
+          expunge = "both";
+          patterns = [ "INBOX" "Drafts" "Junk" "Sent" "Archive" "Trash" ];
+        };
+        mu.enable = true;
+      };
 
-  programs.emacs = {
-    extraConfig = builtins.readFile ./mu4e.el;
-    emacs.extraPackages = epkgs: with epkgs; [
-      mu4e
-      mu4e-alert
+      uu = {
+        address = "xiaoyue.chen@it.uu.se";
+        userName = "xiach215";
+        passwordCommand = "secret-tool lookup port imaps user xiach215 host mail.uu.se";
+        imap.host = "mail.uu.se";
+        mbsync = {
+          enable = true;
+          create = "both";
+          remove = "both";
+          expunge = "both";
+          patterns = [ "INBOX" "Drafts" "Junk Email" "Sent Items" "Archive" "Deleted Items" ];
+          extraConfig.account = { AuthMechs = "PLAIN"; };
+        };
+        mu.enable = true;
+      };
+    };
+
+    programs.mbsync.enable = true;
+    programs.mu.enable = true;
+
+    programs.emacs = {
+      extraConfig = builtins.readFile ./mu4e.el;
+      extraPackages = epkgs: with epkgs; [
+        mu4e
+        mu4e-alert
+      ];
+    };
+
+    home.packages = with pkgs; [
+      libsecret
     ];
   };
 }

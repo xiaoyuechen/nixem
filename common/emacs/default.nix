@@ -13,28 +13,42 @@
 # You should have received a copy of the GNU General Public License
 # along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
-{ config, pkgs, emacs-overlay, ... }:
+{ config, lib, pkgs, emacs-overlay, ... }:
 
-{
-  nixpkgs.overlays = [ emacs-overlay.overlays.default ];
+with lib;
 
-  programs.emacs = {
-    enable = true;
-    package = with pkgs; (emacsWithPackagesFromUsePackage {
-      config = ./emacs.el;
-      package = emacs-unstable.overrideAttrs (old: {
-        patches = [ ./eshell.patch ];
+let cfg = config.nixem.emacs;
+
+in {
+  options = {
+    nixem.emacs.enable = mkEnableOption "emacs";
+  };
+
+  config = mkIf cfg.enable {
+    nixpkgs.overlays = [ emacs-overlay.overlays.default ];
+
+    programs.emacs = {
+      enable = true;
+      package = with pkgs; (emacsWithPackagesFromUsePackage {
+        config = ./emacs.el;
+        package = emacs-unstable.overrideAttrs (old: {
+          patches = [ ./eshell.patch ];
+        });
       });
-    });
-  };
+    };
 
-  services.emacs = {
-    enable = true;
-    package = config.programs.emacs.package;
-    defaultEditor = true;
-    client.enable = true;
-    startWithUserSession = "graphical";
-  };
+    services.emacs = {
+      enable = true;
+      package = config.programs.emacs.package;
+      defaultEditor = true;
+      client.enable = true;
+      startWithUserSession = "graphical";
+    };
 
-  home.file.".emacs.d/init.el".source = ./emacs.el;
+    home.packages = with pkgs; [
+      (aspellWithDicts (dicts: with dicts; [ en en-computers en-science sv ]))
+    ];
+
+    home.file.".emacs.d/init.el".source = ./emacs.el;
+  };
 }
