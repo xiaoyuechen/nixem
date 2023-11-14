@@ -21,7 +21,7 @@ with lib;
     nixem.email.enable = lib.mkEnableOption "email";
   };
 
-  config = lib.mkIf config.nixem.emacs.enable {
+  config = lib.mkIf config.nixem.email.enable {
     accounts.email.accounts = {
       vvvu = {
         primary = true;
