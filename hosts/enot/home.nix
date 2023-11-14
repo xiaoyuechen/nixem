@@ -16,10 +16,6 @@
 { pkgs, lib, ... }:
 
 {
-  imports = [
-    ../../common/emacs
-  ];
-
   programs.home-manager.enable = true;
 
   programs.man.generateCaches = true;
@@ -38,7 +34,8 @@
     pinentryFlavor = "gnome3";
   };
 
-  xdg.enable = true;
+  nixem.emacs.enable = true;
+  nixem.email.enable = true;
 
   nixpkgs.config.allowUnfreePredicate = pkg:
     builtins.elem (lib.getName pkg) [
@@ -49,7 +46,8 @@
     ];
 
   home.packages = with pkgs; [
-    (aspellWithDicts (dicts: with dicts; [ en en-computers en-science sv ]))
+    nil
+
     firefox
     steam
   ];

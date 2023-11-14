@@ -13,16 +13,12 @@
 # You should have received a copy of the GNU General Public License
 # along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
-{ config, pkgs, lib, home-manager, emacs-overlay, ... }:
+{ config, pkgs, lib, ... }:
 
 {
-  imports =
-    [
-      home-manager.nixosModules.default
-      ../../cachix.nix
-      ../../common/fonts
-      ./hardware-configuration.nix
-    ];
+  imports = [
+    ./hardware-configuration.nix
+  ];
 
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
@@ -60,11 +56,7 @@
     extraGroups = [ "wheel" "networkmanager" ];
   };
 
-  home-manager = {
-    useUserPackages = true;
-    extraSpecialArgs = { inherit emacs-overlay; };
-    users.xchen = import ./home.nix;
-  };
+  home-manager.users.xchen = import ./home.nix;
 
   services.openssh.enable = true;
 
