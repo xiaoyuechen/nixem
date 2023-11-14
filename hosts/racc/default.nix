@@ -13,16 +13,14 @@
 # You should have received a copy of the GNU General Public License
 # along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
-{ pkgs, lib, home-manager, emacs-overlay, cachix, nixem, ... }: {
+{ pkgs, lib, ... }: {
   imports =
     [
-      home-manager.nixosModules.default
-      cachix
       ./hardware-configuration.nix
       ./video.nix
       ./autorandr.nix
       ./wireguard.nix
-    ] ++ nixem.osModules;
+    ];
 
   # Use the systemd-boot EFI boot loader.
   boot.loader.systemd-boot.enable = true;
@@ -96,14 +94,7 @@
     extraGroups = [ "wheel" "networkmanager" "libvirtd" ];
   };
 
-  home-manager = {
-    useUserPackages = true;
-    extraSpecialArgs = {
-      inherit emacs-overlay;
-      inherit nixem;
-    };
-    users.xchen = import ./home.nix;
-  };
+  home-manager.users.xchen = import ./home.nix;
 
   # This value determines the NixOS release from which the default
   # settings for stateful data, like file locations and database versions

@@ -13,11 +13,9 @@
 # You should have received a copy of the GNU General Public License
 # along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
-{ config, pkgs, lib, nixem, ... }:
+{ config, pkgs, lib, ... }:
 
 {
-  imports = nixem.hmModules;
-
   programs.home-manager.enable = true;
 
   programs.man.generateCaches = true;

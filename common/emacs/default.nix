@@ -25,7 +25,7 @@ in {
   };
 
   config = mkIf cfg.enable {
-    nixpkgs.overlays = [ emacs-overlay.overlays.default ];
+    nixpkgs.overlays = [ emacs-overlay ];
 
     programs.emacs = {
       enable = true;

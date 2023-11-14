@@ -15,20 +15,6 @@
   outputs = inputs@{ self, nixpkgs, emacs-overlay, home-manager }:
     {
       formatter.x86_64-linux = nixpkgs.legacyPackages.x86_64-linux.nixpkgs-fmt;
-
-      nixosConfigurations.racc = nixpkgs.lib.nixosSystem {
-        system = "x86_64-linux";
-        specialArgs = inputs // {
-          cachix = import ./cachix.nix;
-          nixem = import ./common;
-        };
-        modules = [ ./hosts/racc ];
-      };
-
-      nixosConfigurations.enot = nixpkgs.lib.nixosSystem {
-        system = "x86_64-linux";
-        specialArgs = inputs;
-        modules = [ ./hosts/enot ];
-      };
+      nixosConfigurations = import ./configurations.nix inputs;
     };
 }

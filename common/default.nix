@@ -13,7 +13,11 @@
 # You should have received a copy of the GNU General Public License
 # along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
-{
+let
+  osModules = [
+    ./fonts
+  ];
+
   hmModules = [
     ./emacs
     ./email
@@ -24,7 +28,8 @@
     ./desktop-manager
   ];
 
-  osModules = [
-    ./fonts
-  ];
+in
+{
+  os = { imports = osModules; };
+  home = { imports = hmModules; };
 }
