@@ -16,7 +16,7 @@
 { nixpkgs, home-manager, emacs-overlay, ... }:
 
 let
-  nixem = import ./common;
+  nixem = import ./modules;
 
   homeManagerConfig = {
     home-manager = {
@@ -28,17 +28,24 @@ let
     };
   };
 
+  defaultConfig = {
+    imports = [
+      nixem.os
+      home-manager.nixosModules.default
+      homeManagerConfig
+    ];
+
+    nixem.fonts.enable = true;
+    nixem.substituters.enable = true;
+    services.fwupd.enable = true;
+  };
+
   mkNixosSystem = configModule: nixpkgs.lib.nixosSystem
     {
       system = "x86_64-linux";
       modules = [
+        defaultConfig
         configModule
-        nixem.os
-        { nixem.fonts.enable = true; }
-        { services.fwupd.enable = true; }
-        home-manager.nixosModules.default
-        homeManagerConfig
-        ./cachix.nix
       ];
     };
 

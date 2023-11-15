@@ -13,24 +13,27 @@
 # You should have received a copy of the GNU General Public License
 # along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
-let
-  osModules = [
-    ./fonts
-    ./substituters
-  ];
+{ config, lib, pkgs, ... }:
 
-  hmModules = [
-    ./emacs
-    ./email
-    ./picom
-    ./rofi
-    ./taffybar
-    ./xmonad
-    ./desktop-manager
-  ];
+with lib;
 
-in
-{
-  os = { imports = osModules; };
-  home = { imports = hmModules; };
+let cfg = config.substituters;
+
+in {
+  options = {
+    nixem.substituters.enable = mkEnableOption "fonts";
+  };
+
+  config = mkIf cfg.enable {
+    nix = {
+      settings = {
+        substituters = [
+          "https://nix-community.cachix.org"
+        ];
+        trusted-public-keys = [
+          "nix-community.cachix.org-1:mB9FSh9qf2dCimDSUo8Zy7bkq5CX+/rkCWyvRCYg3Fs="
+        ];
+      };
+    };
+  };
 }
