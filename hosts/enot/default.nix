@@ -39,14 +39,13 @@
     xkbOptions = "ctrl:nocaps";
     autoRepeatDelay = 200;
     autoRepeatInterval = 30;
+    displayManager.gdm.enable = true;
+    desktopManager.gnome.enable = true;
   };
 
-  services.xserver.displayManager.gdm.enable = true;
-  services.xserver.desktopManager.gnome.enable = true;
-  programs.git.enable = true;
+  services.fprintd.enable = true;
 
   sound.enable = true;
-
   hardware.pulseaudio.enable = true;
   hardware.bluetooth.enable = true;
   hardware.opengl.driSupport32Bit = true;
@@ -58,6 +57,7 @@
 
   home-manager.users.xchen = import ./home.nix;
 
+  programs.git.enable = true;
   services.openssh.enable = true;
 
   # This value determines the NixOS release from which the default
