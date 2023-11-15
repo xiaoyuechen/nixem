@@ -1,1 +1,14 @@
-#+title: NixOS configuration for a laptop
+#+title: nixem
+#+subtitle: Modular NixOS configurations for my personal devices
+
+This is a collection of personal configurations, abstracted into nix
+modules, for a growing list of devices. This is a table of devices
+that use the configurations.
+
+| Hostname | OEM    | Model                   | Config files    | Description                                                |
+|----------+--------+-------------------------+-----------------+------------------------------------------------------------|
+| racc     | ASUS   | Strix GL504GM           | [[file:hosts/racc]] | A gaming laptop with an Nvidia graphics card, using XMonad |
+| enot     | Lenovo | Thinkpad T14s Gen 4 AMD | [[file:hosts/enot]] | An AMD thinkpad, using GNOME atm                           |
+
+One might also be interested in the modules. The repository contains
+examples to setup [[file:modules/emacs.nix][emacs]], [[file:modules/email.nix][email]] (with mbsync and mu), etc.
