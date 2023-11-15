@@ -17,11 +17,11 @@
 
 with lib;
 
-let cfg = config.substituters;
+let cfg = config.nixem.substituters;
 
 in {
   options = {
-    nixem.substituters.enable = mkEnableOption "fonts";
+    nixem.substituters.enable = mkEnableOption "substituters";
   };
 
   config = mkIf cfg.enable {

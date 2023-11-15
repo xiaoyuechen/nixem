@@ -15,18 +15,18 @@
 
 let
   osModules = [
-    ./fonts
-    ./substituters
+    ./fonts.nix
+    ./substituters.nix
   ];
 
   hmModules = [
-    ./emacs
-    ./email
-    ./picom
-    ./rofi
-    ./taffybar
-    ./xmonad
-    ./desktop-manager
+    ./emacs.nix
+    ./email.nix
+    ./picom.nix
+    ./rofi.nix
+    ./taffybar.nix
+    ./xmonad.nix
+    ./desktop-manager.nix
   ];
 
 in
