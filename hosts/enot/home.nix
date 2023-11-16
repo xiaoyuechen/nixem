@@ -35,6 +35,12 @@
   };
 
   xdg.enable = true;
+  xdg.mimeApps = {
+    enable = true;
+    defaultApplications = {
+      "application/pdf" = [ "org.kde.okular.desktop" ];
+    };
+  };
 
   nixem.emacs.enable = true;
   nixem.email.enable = true;
@@ -50,12 +56,14 @@
   home.packages = with pkgs; [
     direnv
     clang-tools_16
+    python3Packages.python-lsp-server
     nil
 
     gnumake.info
     gcc.info
     glibcInfo
     man-pages
+    git-crypt
 
     firefox
     okular
