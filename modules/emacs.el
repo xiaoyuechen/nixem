@@ -936,8 +936,7 @@ when bash-completion fails to match the text at point."
   (setq mu4e-completing-read-function 'completing-read)
   (setq mu4e-get-mail-command "mbsync -a")
   (setq mu4e-change-filenames-when-moving t)
-  (setq mu4e-index-cleanup nil      ;; don't do a full cleanup check
-        mu4e-index-lazy-check t)    ;; don't consider up-to-date dirs
+  (setq mu4e-index-lazy-check t)
   (setq mu4e-hide-index-messages t)
   (setq mu4e-change-filenames-when-moving t)
   (setq message-send-mail-function 'smtpmail-send-it)
