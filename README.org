@@ -1,9 +1,9 @@
 #+title: nixem
 #+subtitle: Modular NixOS configurations for my personal devices
 
-This is a collection of personal configurations, abstracted into nix
-modules, for a growing list of devices. This is a table of devices
-that use the configurations.
+A collection of personal configurations, abstracted into nix modules,
+for a growing list of devices. This is a table of devices that use the
+configurations.
 
 | Hostname | OEM    | Model                   | Config files    | Description                                                |
 |----------+--------+-------------------------+-----------------+------------------------------------------------------------|
