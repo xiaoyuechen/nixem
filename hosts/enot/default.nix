@@ -48,6 +48,9 @@
   hardware.bluetooth.enable = true;
   hardware.opengl.driSupport32Bit = true;
 
+  documentation.man.generateCaches = true;
+  documentation.dev.enable = true;
+
   users.users.xchen = {
     isNormalUser = true;
     extraGroups = [ "wheel" "networkmanager" ];
