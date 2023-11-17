@@ -47,6 +47,7 @@
   hardware.pulseaudio.enable = true;
   hardware.bluetooth.enable = true;
   hardware.opengl.driSupport32Bit = true;
+  hardware.i2c.enable = true;
 
   documentation.man.generateCaches = true;
   documentation.dev.enable = true;
