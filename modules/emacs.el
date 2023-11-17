@@ -1027,6 +1027,8 @@ when bash-completion fails to match the text at point."
          ((member name '("uu" "vvvu"))
           (mml-secure-sign))))))
 
-  (setq mml-secure-openpgp-sign-with-sender t))
+  (setq mml-secure-openpgp-sign-with-sender t)
+  (setq mm-verify-option 'known
+        mm-decrypt-option 'known))
 
 ;;; init.el ends here
