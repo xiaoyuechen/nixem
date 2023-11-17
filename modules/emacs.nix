@@ -31,9 +31,11 @@ in {
       enable = true;
       package = with pkgs; (emacsWithPackagesFromUsePackage {
         config = ./emacs.el;
+        defaultInitFile = true;
         package = emacs-unstable.overrideAttrs (old: {
           patches = [ ./eshell.patch ];
         });
+
       });
     };
 
@@ -48,7 +50,5 @@ in {
     home.packages = with pkgs; [
       (aspellWithDicts (dicts: with dicts; [ en en-computers en-science sv ]))
     ];
-
-    home.file.".emacs.d/init.el".source = ./emacs.el;
   };
 }

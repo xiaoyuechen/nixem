@@ -37,9 +37,6 @@
   xdg.enable = true;
   xdg.mimeApps = {
     enable = true;
-    defaultApplications = {
-      "application/pdf" = [ "org.kde.okular.desktop" ];
-    };
   };
 
   nixem.emacs.enable = true;
@@ -66,7 +63,6 @@
     git-crypt
 
     firefox
-    okular
     signal-desktop
     steam
   ];
