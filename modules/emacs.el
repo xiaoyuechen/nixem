@@ -752,17 +752,6 @@ when bash-completion fails to match the text at point."
   :hook
   (eglot-managed-mode . eldoc-box-hover-at-point-mode))
 
-(use-package find-file
-  :config
-  (dolist (dir '("../include" "../inc" "../source" "../src"))
-    (add-to-list 'cc-search-directories dir))
-
-  :bind
-  ( :map c-mode-map
-    ("C-c o" . ff-find-other-file)
-    :map c++-mode-map
-    ("C-c o" . ff-find-other-file)))
-
 (use-package cc-mode
   :config
   (c-add-style "m5"
@@ -785,7 +774,18 @@ when bash-completion fails to match the text at point."
                      (c-toggle-electric-state 1)
                      (c-toggle-comment-style 1)))
   (minizinc-mode . (lambda ()
-                     (c-toggle-electric-state -1))))
+                     (c-toggle-electric-state -1)))
+
+  :bind
+  ( :map c-mode-map
+    ("C-c o" . ff-find-other-file)
+    :map c++-mode-map
+    ("C-c o" . ff-find-other-file)))
+
+(use-package find-file
+  :config
+  (dolist (dir '("../include" "../inc" "../source" "../src"))
+    (add-to-list 'cc-search-directories dir)))
 
 (use-package minizinc-mode
   :ensure t
