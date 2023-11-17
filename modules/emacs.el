@@ -42,7 +42,8 @@
         user-mail-address "xchen@vvvu.org")
 
   (setq custom-file (expand-file-name "custom.el" user-emacs-directory))
-  (load-theme 'leuven-dark)
+  (set-face-attribute 'default nil :height 140)
+  (load-theme 'leuven)
   (setq x-underline-at-descent-line t)
   (setq max-mini-window-height 0.6)
   (setq split-height-threshold nil)
