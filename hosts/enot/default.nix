@@ -60,7 +60,10 @@
   home-manager.users.xchen = import ./home.nix;
 
   programs.git.enable = true;
-  services.openssh.enable = true;
+  services.openssh = {
+    enable = true;
+    settings.PasswordAuthentication = false;
+  };
 
   # This value determines the NixOS release from which the default
   # settings for stateful data, like file locations and database versions
