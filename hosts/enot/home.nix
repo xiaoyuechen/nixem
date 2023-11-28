@@ -37,6 +37,9 @@
   xdg.enable = true;
   xdg.mimeApps = {
     enable = true;
+    defaultApplications = {
+      "application/pdf" = "org.gnome.Evince.desktop";
+    };
   };
 
   nixem.emacs.enable = true;
@@ -44,6 +47,7 @@
 
   nixpkgs.config.allowUnfreePredicate = pkg:
     builtins.elem (lib.getName pkg) [
+      "bgnet"
       "steam"
       "steam-original"
       "steam-run"
@@ -52,19 +56,23 @@
 
   home.packages = with pkgs; [
     direnv
+    git-crypt
     clang-tools_16
     python3Packages.python-lsp-server
     nil
+
+    texlive.combined.scheme-full
 
     gnumake.info
     gcc.info
     glibcInfo
     man-pages
-    git-crypt
 
     firefox
     signal-desktop
     steam
+    libreoffice
+    skypeforlinux
   ];
 
   home.stateVersion = "23.05";
