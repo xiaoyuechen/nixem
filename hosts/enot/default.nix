@@ -62,7 +62,10 @@
   programs.git.enable = true;
   services.openssh = {
     enable = true;
-    settings.PasswordAuthentication = false;
+    settings = {
+      PasswordAuthentication = false;
+      KbdInteractiveAuthentication = false;
+    };
   };
 
   # This value determines the NixOS release from which the default
