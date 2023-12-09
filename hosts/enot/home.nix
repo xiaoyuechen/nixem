@@ -47,11 +47,11 @@
 
   nixpkgs.config.allowUnfreePredicate = pkg:
     builtins.elem (lib.getName pkg) [
-      "bgnet"
       "steam"
       "steam-original"
       "steam-run"
       "skypeforlinux"
+      "zoom"
     ];
 
   home.packages = with pkgs; [
@@ -60,6 +60,8 @@
     clang-tools_16
     python3Packages.python-lsp-server
     nil
+    gcc
+    gsl
 
     texlive.combined.scheme-full
 
@@ -70,9 +72,11 @@
 
     firefox
     signal-desktop
-    steam
     libreoffice
+
+    steam
     skypeforlinux
+    zoom-us
   ];
 
   home.stateVersion = "23.05";
