@@ -57,6 +57,8 @@
   home.packages = with pkgs; [
     direnv
     git-crypt
+    ripgrep
+
     clang-tools_16
     python3Packages.python-lsp-server
     nil

@@ -220,8 +220,8 @@
 (use-package cape
   :ensure t
   :hook
-  (eshell-hist-mode . (lambda () (local-set-key (kbd "M-SPC") 'cape-history)))
-  (comint-mode . (lambda () (local-set-key (kbd "M-SPC") 'cape-history))))
+  (eshell-hist-mode . (lambda () (local-set-key (kbd "S-SPC") 'cape-history)))
+  (comint-mode . (lambda () (local-set-key (kbd "S-SPC") 'cape-history))))
 
 (use-package delight
   :ensure t)
@@ -668,7 +668,7 @@ when bash-completion fails to match the text at point."
 
   :bind
   ( :map corfu-map
-    ("M-SPC" . corfu-insert-separator))
+    ("S-SPC" . corfu-insert-separator))
 
   :hook
   (eshell-mode . (lambda () (setq-local corfu-auto nil)))

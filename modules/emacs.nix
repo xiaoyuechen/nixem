@@ -35,7 +35,6 @@ in {
         package = emacs-unstable.overrideAttrs (old: {
           patches = [ ./eshell.patch ];
         });
-
       });
     };
 
