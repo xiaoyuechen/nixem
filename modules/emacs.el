@@ -674,15 +674,11 @@ when bash-completion fails to match the text at point."
   (eshell-mode . (lambda () (setq-local corfu-auto nil)))
   (comint-mode . (lambda () (setq-local corfu-auto nil))))
 
-(use-package kind-icon
+(use-package nerd-icons-corfu
   :ensure t
   :after (corfu)
-  :custom
-  (kind-icon-default-face 'corfu-default) ; to compute blended backgrounds correctly
-  (kind-icon-default-style
-   '(:padding -1 :stroke 0 :margin 0 :radius 0 :height 0.5 :scale 1.0))
   :config
-  (add-to-list 'corfu-margin-formatters #'kind-icon-margin-formatter))
+  (add-to-list 'corfu-margin-formatters #'nerd-icons-corfu-formatter))
 
 (use-package marginalia
   :ensure t
