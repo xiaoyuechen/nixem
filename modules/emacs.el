@@ -913,6 +913,12 @@ when bash-completion fails to match the text at point."
 (use-package cmake-mode
   :ensure t)
 
+(use-package rust-mode
+  :ensure t)
+
+(use-package yaml-mode
+  :ensure t)
+
 (use-package mu4e
   :ensure t
   :bind
