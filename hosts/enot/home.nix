@@ -42,10 +42,7 @@
     };
   };
 
-  nixem.emacs = {
-    enable = true;
-    package = pkgs.emacs-pgtk;
-  };
+  nixem.emacs.enable = true;
   nixem.email.enable = true;
 
   nixpkgs.config.allowUnfreePredicate = pkg:
@@ -60,14 +57,11 @@
   home.packages = with pkgs; [
     direnv
     git-crypt
-
-    gcc
-    gsl
     clang-tools_16
-
     python3Packages.python-lsp-server
     nil
-    rust-analyzer
+    gcc
+    gsl
 
     texlive.combined.scheme-full
 

@@ -22,9 +22,6 @@ let cfg = config.nixem.emacs;
 in {
   options = {
     nixem.emacs.enable = mkEnableOption "emacs";
-    nixem.emacs.package = mkPackageOption pkgs "emacs" {
-      default = [ "emacs-unstable" ];
-    };
   };
 
   config = mkIf cfg.enable {
@@ -35,7 +32,10 @@ in {
       package = with pkgs; (emacsWithPackagesFromUsePackage {
         config = ./emacs.el;
         defaultInitFile = true;
-        package = cfg.package;
+        package = emacs-unstable.overrideAttrs (old: {
+          patches = [ ./eshell.patch ];
+        });
+
       });
     };
 
