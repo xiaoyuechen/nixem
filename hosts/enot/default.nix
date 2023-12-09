@@ -27,7 +27,13 @@
   networking.networkmanager.enable = true;
 
   time.timeZone = "Europe/Stockholm";
-  i18n.defaultLocale = "en_GB.UTF-8";
+
+  i18n = {
+    defaultLocale = "en_GB.UTF-8";
+    inputMethod.enabled = "ibus";
+    inputMethod.ibus.engines = with pkgs.ibus-engines; [ libpinyin ];
+  };
+
   console.useXkbConfig = true;
 
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
