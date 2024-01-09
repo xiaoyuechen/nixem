@@ -22,6 +22,7 @@
 
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
+  boot.binfmt.emulatedSystems = [ "aarch64-linux" "riscv64-linux" ];
 
   networking.hostName = "enot";
   networking.networkmanager.enable = true;
@@ -30,8 +31,8 @@
 
   i18n = {
     defaultLocale = "en_GB.UTF-8";
-    inputMethod.enabled = "ibus";
-    inputMethod.ibus.engines = with pkgs.ibus-engines; [ libpinyin ];
+    inputMethod.enabled = "fcitx5";
+    inputMethod.fcitx5.addons = with pkgs; [ fcitx5-chinese-addons ];
   };
 
   console.useXkbConfig = true;

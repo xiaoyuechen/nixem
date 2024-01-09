@@ -55,17 +55,19 @@
     ];
 
   home.packages = with pkgs; [
-    direnv
-    git-crypt
-    ripgrep
-
     clang-tools_16
     python3Packages.python-lsp-server
     nil
-    gcc
-    gsl
+    rust-analyzer
 
+    gcc
     texlive.combined.scheme-full
+    gdb
+
+    direnv
+    git-crypt
+    ripgrep
+    unzip
 
     gnumake.info
     gcc.info
