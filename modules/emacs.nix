@@ -1,4 +1,4 @@
-# Copyright (C) 2023  Xiaoyue Chen
+# Copyright (C) 2023, 2024  Xiaoyue Chen
 #
 # This program is free software: you can redistribute it and/or modify
 # it under the terms of the GNU General Public License as published by
@@ -32,9 +32,7 @@ in {
       package = with pkgs; (emacsWithPackagesFromUsePackage {
         config = ./emacs.el;
         defaultInitFile = true;
-        package = emacs-unstable.overrideAttrs (old: {
-          patches = [ ./eshell.patch ];
-        });
+        package = emacsGit;
       });
     };
 
