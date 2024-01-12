@@ -1,4 +1,4 @@
-# Copyright (C) 2023, 2024  Xiaoyue Chen
+# Copyright (C) 2024  Xiaoyue Chen
 #
 # This program is free software: you can redistribute it and/or modify
 # it under the terms of the GNU General Public License as published by
@@ -13,25 +13,26 @@
 # You should have received a copy of the GNU General Public License
 # along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
-let
-  osModules = [
-    ./fonts.nix
-    ./substituters.nix
-  ];
+{ config, lib, pkgs, ... }:
 
-  hmModules = [
-    ./emacs.nix
-    ./email.nix
-    ./picom.nix
-    ./rofi.nix
-    ./taffybar.nix
-    ./xmonad.nix
-    ./desktop-manager.nix
-    ./direnv.nix
-  ];
+with lib;
 
-in
-{
-  os = { imports = osModules; };
-  home = { imports = hmModules; };
+let cfg = config.nixem.direnv;
+
+in {
+  options = {
+    nixem.direnv.enable = mkEnableOption "direnv";
+  };
+
+  config = mkIf cfg.enable {
+
+    home.packages = with pkgs; [ direnv ];
+
+    programs.bash = {
+      enable = true;
+      bashrcExtra = ''
+        eval "$(direnv hook bash)"
+      '';
+    };
+  };
 }

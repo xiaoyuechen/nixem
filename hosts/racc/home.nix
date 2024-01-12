@@ -1,4 +1,4 @@
-# Copyright (C) 2023  Xiaoyue Chen
+# Copyright (C) 2023, 2024  Xiaoyue Chen
 #
 # This program is free software: you can redistribute it and/or modify
 # it under the terms of the GNU General Public License as published by
@@ -39,6 +39,7 @@
   nixem.desktopManager.xmonad.enable = true;
   nixem.emacs.enable = true;
   nixem.email.enable = true;
+  nixem.direnv.enable = true;
 
   nixpkgs.config.allowUnfreePredicate = pkg:
     builtins.elem (lib.getName pkg) [
@@ -54,7 +55,6 @@
     autoconf
     gcc
     gdb
-    direnv
     clang-tools_16
     git-crypt
     haskellPackages.hoogle
