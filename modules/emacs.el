@@ -1,6 +1,6 @@
 ;;; init.el --- My personal Emacs init file          -*- lexical-binding: t; -*-
 
-;; Copyright (C) 2022, 2023  Xiaoyue Chen
+;; Copyright (C) 2022, 2023, 2024  Xiaoyue Chen
 
 ;; Author: Xiaoyue Chen <xchen@vvvu.org>
 
@@ -41,7 +41,7 @@
   (setq user-full-name "Xiaoyue Chen"
         user-mail-address "xchen@vvvu.org")
 
-  (setq custom-file (expand-file-name "custom.el" user-emacs-directory))
+  (setq custom-file null-device)
   (set-face-attribute 'default nil :height 140)
   (load-theme 'leuven)
   (setq x-underline-at-descent-line t)
