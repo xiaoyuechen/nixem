@@ -45,6 +45,7 @@
   nixem.emacs.enable = true;
   nixem.email.enable = true;
   nixem.direnv.enable = true;
+  nixem.python-lsp-server.enable = true;
 
   nixpkgs.config.allowUnfreePredicate = pkg:
     builtins.elem (lib.getName pkg) [
@@ -57,7 +58,6 @@
 
   home.packages = with pkgs; [
     clang-tools_16
-    python3Packages.python-lsp-server
     nil
     rust-analyzer
 
@@ -81,6 +81,7 @@
     steam
     skypeforlinux
     zoom-us
+    transmission-qt
   ];
 
   home.stateVersion = "23.05";
