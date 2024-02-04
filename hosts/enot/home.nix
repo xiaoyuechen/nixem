@@ -42,6 +42,11 @@
     };
   };
 
+  programs.firefox = {
+    enable = true;
+    enableGnomeExtensions = true;
+  };
+
   nixem.emacs.enable = true;
   nixem.email.enable = true;
   nixem.direnv.enable = true;
@@ -74,14 +79,14 @@
     glibcInfo
     man-pages
 
-    firefox
     signal-desktop
     libreoffice
+    bitwarden
 
     steam
     skypeforlinux
     zoom-us
-    transmission-qt
+    transmission-gtk
   ];
 
   home.stateVersion = "23.05";

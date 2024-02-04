@@ -1,4 +1,4 @@
-# Copyright (C) 2023  Xiaoyue Chen
+# Copyright (C) 2023, 2024  Xiaoyue Chen
 #
 # This program is free software: you can redistribute it and/or modify
 # it under the terms of the GNU General Public License as published by
@@ -50,6 +50,8 @@
     desktopManager.gnome.enable = true;
   };
 
+  services.gnome.gnome-browser-connector.enable = true;
+
   sound.enable = true;
   hardware.pulseaudio.enable = true;
   hardware.bluetooth.enable = true;
@@ -59,9 +61,11 @@
   documentation.man.generateCaches = true;
   documentation.dev.enable = true;
 
+  virtualisation.docker.enable = true;
+
   users.users.xchen = {
     isNormalUser = true;
-    extraGroups = [ "wheel" "networkmanager" ];
+    extraGroups = [ "wheel" "networkmanager" "docker" ];
   };
 
   home-manager.users.xchen = import ./home.nix;
