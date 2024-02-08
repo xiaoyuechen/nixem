@@ -1,4 +1,4 @@
-# Copyright (C) 2023  Xiaoyue Chen
+# Copyright (C) 2023, 2024  Xiaoyue Chen
 #
 # This program is free software: you can redistribute it and/or modify
 # it under the terms of the GNU General Public License as published by
@@ -41,29 +41,15 @@
 
   console.useXkbConfig = true;
 
-  nixem.fonts.enable = true;
-
   swapDevices = [{
     device = "/var/lib/swapfile";
     size = 16 * 1024;
   }];
 
-  nix.settings.experimental-features = [ "nix-command" "flakes" ];
-
   documentation.man.generateCaches = true;
   documentation.dev.enable = true;
 
   # nix.settings.substituters = [ "https://mirrors.cernet.edu.cn/nix-channels/store" ];
-
-  # Enable the X11 windowing system.
-  services.xserver = {
-    enable = true;
-    libinput.enable = true;
-    layout = "us";
-    xkbOptions = "ctrl:nocaps";
-    autoRepeatDelay = 200;
-    autoRepeatInterval = 30;
-  };
 
   nixpkgs.config.allowUnfreePredicate = pkg:
     builtins.elem (lib.getName pkg) [

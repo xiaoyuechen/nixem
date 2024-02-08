@@ -1,4 +1,4 @@
-# Copyright (C) 2023  Xiaoyue Chen
+# Copyright (C) 2023, 2024  Xiaoyue Chen
 #
 # This program is free software: you can redistribute it and/or modify
 # it under the terms of the GNU General Public License as published by
@@ -38,6 +38,22 @@ let
     nixem.fonts.enable = true;
     nixem.substituters.enable = true;
     services.fwupd.enable = true;
+
+    console.useXkbConfig = true;
+
+    # Enable the X11 windowing system.
+    services.xserver = {
+      enable = true;
+      libinput.enable = true;
+      autoRepeatDelay = 200;
+      autoRepeatInterval = 30;
+      xkb = {
+        layout = "us";
+        options = "ctrl:nocaps";
+      };
+    };
+
+    nix.settings.experimental-features = [ "nix-command" "flakes" ];
   };
 
   mkNixosSystem = configModule: nixpkgs.lib.nixosSystem

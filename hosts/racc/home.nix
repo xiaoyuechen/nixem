@@ -63,7 +63,6 @@
     unzip
     nssTools
     ddcutil
-    nixops_unstable
     texlive.combined.scheme-full
 
     okular

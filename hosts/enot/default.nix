@@ -35,17 +35,7 @@
     inputMethod.fcitx5.addons = with pkgs; [ fcitx5-chinese-addons ];
   };
 
-  console.useXkbConfig = true;
-
-  nix.settings.experimental-features = [ "nix-command" "flakes" ];
-
   services.xserver = {
-    enable = true;
-    libinput.enable = true;
-    layout = "us";
-    xkbOptions = "ctrl:nocaps";
-    autoRepeatDelay = 200;
-    autoRepeatInterval = 30;
     displayManager.gdm.enable = true;
     desktopManager.gnome.enable = true;
   };
