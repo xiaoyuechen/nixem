@@ -51,7 +51,10 @@
   documentation.man.generateCaches = true;
   documentation.dev.enable = true;
 
-  virtualisation.docker.enable = true;
+  virtualisation = {
+    docker.enable = true;
+    waydroid.enable = true;
+  };
 
   users.users.xchen = {
     isNormalUser = true;
