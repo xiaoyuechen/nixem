@@ -44,7 +44,6 @@ let
     # Enable the X11 windowing system.
     services.xserver = {
       enable = true;
-      libinput.enable = true;
       autoRepeatDelay = 200;
       autoRepeatInterval = 30;
       xkb = {
@@ -52,6 +51,8 @@ let
         options = "ctrl:nocaps";
       };
     };
+
+    services.libinput.enable = true;
 
     nix.settings.experimental-features = [ "nix-command" "flakes" ];
   };

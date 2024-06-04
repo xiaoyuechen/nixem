@@ -31,7 +31,7 @@
   services.gpg-agent = {
     enable = true;
     enableSshSupport = true;
-    pinentryPackage = pkgs.pinentry-gnome;
+    pinentryPackage = pkgs.pinentry-gnome3;
   };
 
   xdg.enable = true;
@@ -44,7 +44,9 @@
 
   programs.firefox = {
     enable = true;
-    enableGnomeExtensions = true;
+    nativeMessagingHosts = [
+      pkgs.gnome-browser-connector
+    ];
   };
 
   nixem.emacs.enable = true;
@@ -87,6 +89,8 @@
     skypeforlinux
     zoom-us
     transmission-gtk
+    whatsapp-for-linux
+    telegram-desktop
   ];
 
   home.stateVersion = "23.05";
