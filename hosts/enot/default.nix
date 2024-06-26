@@ -22,7 +22,6 @@
 
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
-  boot.binfmt.emulatedSystems = [ "aarch64-linux" "riscv64-linux" ];
 
   networking.hostName = "enot";
   networking.networkmanager.enable = true;
@@ -53,7 +52,6 @@
 
   virtualisation = {
     docker.enable = true;
-    waydroid.enable = true;
   };
 
   users.users.xchen = {
