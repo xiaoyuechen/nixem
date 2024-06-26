@@ -915,7 +915,7 @@ when bash-completion fails to match the text at point."
    :map mu4e-main-mode-map
    ("q" . (lambda ()
             (interactive)
-            (mu4e-context-switch nil "vvvu")
+            (mu4e-context-switch nil "xchen")
             (bury-buffer))))
 
   :config
@@ -942,21 +942,23 @@ when bash-completion fails to match the text at point."
   (setq mu4e-headers-date-format "%F")
   (setq mu4e-maildir-shortcuts
         '((:maildir "/uu/Inbox" :key ?u)
-          (:maildir "/vvvu/Inbox" :key ?v)))
+          (:maildir "/xchen/Inbox" :key ?x)
+          (:maildir "/jli/Inbox" :key ?j)))
   (setq mu4e-contexts
         `(,(make-mu4e-context
-            :name "vvvu"
+            :name "xchen"
             :match-func
             (lambda (msg)
               (when msg
-                (string-match-p "^/vvvu"
+                (string-match-p "^/xchen"
                                 (mu4e-message-field msg :maildir))))
             :vars
             '((user-mail-address . "xchen@vvvu.org")
-              (mu4e-sent-folder . "/vvvu/Sent")
-              (mu4e-drafts-folder . "/vvvu/Drafts")
-              (mu4e-trash-folder . "/vvvu/Trash")
-              (mu4e-refile-folder . "/vvvu/Archive")
+              (user-full-name . "Xiaoyue Chen")
+              (mu4e-sent-folder . "/xchen/Sent")
+              (mu4e-drafts-folder . "/xchen/Drafts")
+              (mu4e-trash-folder . "/xchen/Trash")
+              (mu4e-refile-folder . "/xchen/Archive")
               (mu4e-sent-messages-behavior . sent)
               (smtpmail-smtp-server . "smtp.sendgrid.net")
               (smtpmail-servers-requiring-authorization . "smtp.sendgrid.net")
@@ -964,6 +966,28 @@ when bash-completion fails to match the text at point."
               (smtpmail-stream-type . starttls)
               (mu4e-compose-signature
                . (concat "Xiaoyue Chen\n"
+                         "VVVU: Workers, Unite!"))))
+          ,(make-mu4e-context
+            :name "jli"
+            :match-func
+            (lambda (msg)
+              (when msg
+                (string-match-p "^/jli"
+                                (mu4e-message-field msg :maildir))))
+            :vars
+            '((user-mail-address . "jli@vvvu.org")
+              (user-full-name . "Jeannot Li")
+              (mu4e-sent-folder . "/jli/Sent")
+              (mu4e-drafts-folder . "/jli/Drafts")
+              (mu4e-trash-folder . "/jli/Trash")
+              (mu4e-refile-folder . "/jli/Archive")
+              (mu4e-sent-messages-behavior . sent)
+              (smtpmail-smtp-server . "smtp.sendgrid.net")
+              (smtpmail-servers-requiring-authorization . "smtp.sendgrid.net")
+              (smtpmail-smtp-service . 587)
+              (smtpmail-stream-type . starttls)
+              (mu4e-compose-signature
+               . (concat "Jeannot Li\n"
                          "VVVU: Workers, Unite!"))))
           ,(make-mu4e-context
             :name "uu"
@@ -974,6 +998,7 @@ when bash-completion fails to match the text at point."
                                 (mu4e-message-field msg :maildir))))
             :vars
             '((user-mail-address . "xiaoyue.chen@it.uu.se")
+              (user-full-name . "Xiaoyue Chen")
               (mu4e-sent-folder . "/uu/Sent Items")
               (mu4e-drafts-folder . "/uu/Drafts")
               (mu4e-trash-folder . "/uu/Deleted Items")
@@ -1019,7 +1044,7 @@ when bash-completion fails to match the text at point."
            (name (if ctx (mu4e-context-name ctx))))
       (when name
         (cond
-         ((member name '("uu" "vvvu"))
+         ((member name '("xchen" "uu" "jli"))
           (mml-secure-sign))))))
 
   (setq mml-secure-openpgp-sign-with-sender t)

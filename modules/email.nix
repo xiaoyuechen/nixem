@@ -1,4 +1,4 @@
-# Copyright (C) 2023  Xiaoyue Chen
+# Copyright (C) 2023, 2024  Xiaoyue Chen
 #
 # This program is free software: you can redistribute it and/or modify
 # it under the terms of the GNU General Public License as published by
@@ -26,11 +26,26 @@ in {
 
   config = mkIf cfg.enable {
     accounts.email.accounts = {
-      vvvu = {
+      xchen = {
         primary = true;
         address = "xchen@vvvu.org";
         userName = "xchen@vvvu.org";
         passwordCommand = "secret-tool lookup port imaps user xchen host mail.vvvu.org";
+        imap.host = "mail.vvvu.org";
+        mbsync = {
+          enable = true;
+          create = "both";
+          remove = "both";
+          expunge = "both";
+          patterns = [ "INBOX" "Drafts" "Junk" "Sent" "Archive" "Trash" ];
+        };
+        mu.enable = true;
+      };
+
+      jli = {
+        address = "jli@vvvu.org";
+        userName = "jli@vvvu.org";
+        passwordCommand = "secret-tool lookup port imaps user jli host mail.vvvu.org";
         imap.host = "mail.vvvu.org";
         mbsync = {
           enable = true;

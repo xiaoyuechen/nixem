@@ -61,6 +61,7 @@
       "steam-run"
       "skypeforlinux"
       "zoom"
+      "bilibili"
     ];
 
   home.packages = with pkgs; [
@@ -91,6 +92,7 @@
     transmission-gtk
     whatsapp-for-linux
     telegram-desktop
+    bilibili
   ];
 
   home.stateVersion = "23.05";
