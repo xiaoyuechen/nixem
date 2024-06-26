@@ -85,19 +85,11 @@
 
   :hook
   (minibuffer-setup . cursor-intangible-mode)
-  (before-save . delete-trailing-whitespace)
-  (org-mode . (lambda ()
-                (when (string-equal (buffer-name) "*scratch*")
-                  (setq-local fill-column 80)
-                  (visual-line-mode)
-                  (visual-fill-column-mode)))))
+  (before-save . delete-trailing-whitespace))
 
 (use-package simple
   :hook
   (org-mode . auto-fill-mode))
-
-(use-package visual-fill-column
-  :ensure t)
 
 (use-package project
   :config
