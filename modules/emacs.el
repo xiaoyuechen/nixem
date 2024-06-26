@@ -883,6 +883,7 @@ when bash-completion fails to match the text at point."
   :config
   (org-ai-install-yasnippets)
   (setq org-element-use-cache nil)
+  (setq org-ai-auto-fill t)
   :bind
   ( :map org-ai-mode-map
     ("C-c r" . nil)))
