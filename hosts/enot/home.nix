@@ -82,6 +82,9 @@
     glibcInfo
     man-pages
 
+    gnomeExtensions.kimpanel
+    gnomeExtensions.appindicator
+
     signal-desktop
     libreoffice
     bitwarden
@@ -93,6 +96,7 @@
     whatsapp-for-linux
     telegram-desktop
     bilibili
+    nextcloud-client
   ];
 
   home.stateVersion = "23.05";
