@@ -17,6 +17,7 @@ let
   osModules = [
     ./fonts.nix
     ./substituters.nix
+    ./printing.nix
   ];
 
   hmModules = [
