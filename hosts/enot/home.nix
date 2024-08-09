@@ -86,7 +86,6 @@
     gnomeExtensions.appindicator
 
     signal-desktop
-    libreoffice
     bitwarden
 
     steam
@@ -97,6 +96,10 @@
     telegram-desktop
     bilibili
     nextcloud-client
+    libreoffice-fresh
+    hunspell
+    hunspellDicts.sv_SE
+    hunspellDicts.en_GB-large
   ];
 
   home.stateVersion = "23.05";
