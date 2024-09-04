@@ -34,12 +34,14 @@
     pinentryPackage = pkgs.pinentry-gnome3;
   };
 
-  xdg.enable = true;
-  xdg.mimeApps = {
-    enable = true;
-    defaultApplications = {
-      "application/pdf" = "org.gnome.Evince.desktop";
+  xdg = {
+    mimeApps = {
+      enable = true;
+      defaultApplications = {
+        "application/pdf" = "org.gnome.Evince.desktop";
+      };
     };
+    configFile."mimeapps.list".force = true;
   };
 
   programs.firefox = {
@@ -91,7 +93,7 @@
     steam
     skypeforlinux
     zoom-us
-    transmission-gtk
+    transmission_4-gtk
     whatsapp-for-linux
     telegram-desktop
     bilibili
