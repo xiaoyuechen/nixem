@@ -26,9 +26,9 @@ in {
 
   config = mkIf cfg.enable {
     home.packages = [
-      (pkgs.python3.withPackages(ps: with ps;
-        [ python-lsp-server ]
-        ++ python-lsp-server.optional-dependencies.all))
+      (pkgs.python3.withPackages (ps: with ps;
+      [ python-lsp-server ]
+      ++ python-lsp-server.optional-dependencies.all))
     ];
   };
 }
