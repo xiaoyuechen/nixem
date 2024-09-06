@@ -919,7 +919,6 @@ when bash-completion fails to match the text at point."
             (bury-buffer))))
 
   :config
-  (setq mu4e-update-interval 300)
   (setq mail-user-agent 'mu4e-user-agent)
   (setq gnus-dired-mail-mode 'mu4e-user-agent)
   (setq read-mail-command 'mu4e)
@@ -931,7 +930,8 @@ when bash-completion fails to match the text at point."
   (setq mu4e-completing-read-function 'completing-read)
   (setq mu4e-get-mail-command "mbsync -a")
   (setq mu4e-change-filenames-when-moving t)
-  (setq mu4e-index-lazy-check t)
+  (setq mu4e-index-cleanup nil
+        mu4e-index-lazy-check t)
   (setq mu4e-hide-index-messages t)
   (setq mu4e-change-filenames-when-moving t)
   (setq message-send-mail-function 'smtpmail-send-it)

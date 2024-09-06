@@ -74,7 +74,19 @@ in {
       };
     };
 
+    services.mbsync = {
+      enable = true;
+      postExec = "${pkgs.writers.writeBash "mu-index" ''
+          if ${pkgs.procps}/bin/pgrep -f 'mu server'; then
+            ${config.services.emacs.package}/bin/emacsclient -e '(mu4e-update-index)'
+          else
+            ${config.programs.mu.package}/bin/mu index
+          fi
+        ''}";
+    };
+
     programs.mbsync.enable = true;
+
     programs.mu.enable = true;
 
     home.packages = with pkgs; [
