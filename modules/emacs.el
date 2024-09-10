@@ -680,22 +680,6 @@ when bash-completion fails to match the text at point."
   ( :map minibuffer-local-map
     ("M-A" . marginalia-cycle)))
 
-(use-package racket-mode
-  :ensure t
-  :hook
-  (racket-mode . racket-xp-mode)
-  (racket-xp-mode
-   . (lambda ()
-       (remove-hook 'pre-redisplay-functions
-                    #'racket-xp-pre-redisplay
-                    t))))
-
-
-(use-package scheme
-  :init
-  (setq auto-mode-alist
-        (remove '("\\.rkt\\'" . scheme-mode) auto-mode-alist)))
-
 (use-package yasnippet
   :ensure t
   :delight yas-minor-mode
