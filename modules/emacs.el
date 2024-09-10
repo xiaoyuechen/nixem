@@ -828,11 +828,6 @@ when bash-completion fails to match the text at point."
   :config
   (put 'magit-clean 'disabled nil))
 
-(use-package geiser
-  :ensure t
-  :config
-  (setq geiser-repl-current-project-function 'ignore))
-
 (use-package trashed
   :ensure t)
 
