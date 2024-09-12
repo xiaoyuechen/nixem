@@ -1030,4 +1030,7 @@ when bash-completion fails to match the text at point."
   (setq mm-verify-option 'known
         mm-decrypt-option 'known))
 
+(use-package rmsbolt
+  :ensure t)
+
 ;;; init.el ends here
