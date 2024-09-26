@@ -32,7 +32,7 @@ in {
       package = with pkgs; (emacsWithPackagesFromUsePackage {
         config = ./emacs.el;
         defaultInitFile = true;
-        package = emacs-pgtk;
+        package = emacs-git;
       });
     };
 
