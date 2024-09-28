@@ -31,8 +31,11 @@
 
   i18n = {
     defaultLocale = "en_GB.UTF-8";
-    inputMethod.enabled = "fcitx5";
-    inputMethod.fcitx5.addons = with pkgs; [ fcitx5-chinese-addons ];
+    inputMethod = {
+      enable = true;
+      type = "fcitx5";
+      fcitx5.addons = with pkgs; [ fcitx5-chinese-addons ];
+    };
   };
 
   services.xserver = {
@@ -42,11 +45,6 @@
 
   services.gnome.gnome-browser-connector.enable = true;
 
-  hardware.opengl = {
-    driSupport = true;
-    driSupport32Bit = true;
-  };
-  hardware.pulseaudio.enable = true;
   hardware.bluetooth.enable = true;
   hardware.i2c.enable = true;
 
