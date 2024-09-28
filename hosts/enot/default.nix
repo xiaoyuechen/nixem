@@ -45,6 +45,8 @@
 
   services.gnome.gnome-browser-connector.enable = true;
 
+  hardware.graphics.enable32Bit = true;
+  hardware.pulseaudio.support32Bit = true;
   hardware.bluetooth.enable = true;
   hardware.i2c.enable = true;
 
