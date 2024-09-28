@@ -33,8 +33,8 @@
     defaultLocale = "en_GB.UTF-8";
     inputMethod = {
       enable = true;
-      type = "fcitx5";
-      fcitx5.addons = with pkgs; [ fcitx5-chinese-addons ];
+      type = "ibus";
+      ibus.engines = with pkgs.ibus-engines; [ libpinyin ];
     };
   };
 

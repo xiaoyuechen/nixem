@@ -58,9 +58,6 @@
 
   nixpkgs.config.allowUnfreePredicate = pkg:
     builtins.elem (lib.getName pkg) [
-      "steam"
-      "steam-original"
-      "steam-run"
       "skypeforlinux"
       "zoom"
       "bilibili"
@@ -84,13 +81,11 @@
     glibcInfo
     man-pages
 
-    gnomeExtensions.kimpanel
     gnomeExtensions.appindicator
 
     signal-desktop
     bitwarden
 
-    steam
     skypeforlinux
     zoom-us
     transmission_4-gtk
