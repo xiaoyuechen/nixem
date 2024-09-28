@@ -99,6 +99,12 @@
   :config
   (setq compile-command "make -k -j $(nproc)"))
 
+(use-package ispell
+  :config
+  (setq text-mode-ispell-word-completion nil)
+  (ispell-set-spellchecker-params)
+  (ispell-hunspell-add-multi-dic "sv_SE,en_GB"))
+
 (use-package abbrev
   :delight)
 

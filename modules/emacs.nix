@@ -44,10 +44,6 @@ in {
       startWithUserSession = "graphical";
     };
 
-    home.packages = with pkgs; [
-      (aspellWithDicts (dicts: with dicts; [ en en-computers sv ]))
-    ];
-
     programs.bash = {
       enable = true;
       bashrcExtra = ''

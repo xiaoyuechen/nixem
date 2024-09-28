@@ -58,6 +58,9 @@
 
   nixpkgs.config.allowUnfreePredicate = pkg:
     builtins.elem (lib.getName pkg) [
+      "steam"
+      "steam-original"
+      "steam-run"
       "skypeforlinux"
       "zoom"
       "bilibili"
@@ -86,17 +89,20 @@
     signal-desktop
     bitwarden
 
-    skypeforlinux
-    zoom-us
     transmission_4-gtk
     whatsapp-for-linux
     telegram-desktop
-    bilibili
     nextcloud-client
     libreoffice-fresh
+
     hunspell
-    hunspellDicts.sv_SE
-    hunspellDicts.en_GB-large
+    hunspellDicts.en-gb-ise
+    hunspellDicts.sv-se
+
+    skypeforlinux
+    zoom-us
+    bilibili
+    steam
   ];
 
   home.stateVersion = "23.05";
