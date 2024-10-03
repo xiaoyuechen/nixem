@@ -450,6 +450,7 @@ when bash-completion fails to match the text at point."
   (setq org-startup-folded 'nofold)
   (setq org-image-actual-width 800)
   (setq org-export-with-toc nil)
+  (setq org-export-with-tags nil)
 
   (dolist (x '((latex biblatex "ieee" "ieee")
                (t csl "ieee.csl" "ieee.csl")))
@@ -914,8 +915,7 @@ when bash-completion fails to match the text at point."
   (setq mu4e-completing-read-function 'completing-read)
   (setq mu4e-get-mail-command "mbsync -a")
   (setq mu4e-change-filenames-when-moving t)
-  (setq mu4e-index-cleanup nil
-        mu4e-index-lazy-check t)
+  (setq mu4e-index-cleanup nil)
   (setq mu4e-hide-index-messages t)
   (setq mu4e-change-filenames-when-moving t)
   (setq message-send-mail-function 'smtpmail-send-it)
@@ -1036,6 +1036,9 @@ when bash-completion fails to match the text at point."
         mm-decrypt-option 'known))
 
 (use-package rmsbolt
+  :ensure t)
+
+(use-package pdf-tools
   :ensure t)
 
 ;;; init.el ends here

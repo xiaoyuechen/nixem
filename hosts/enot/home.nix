@@ -94,6 +94,7 @@
     telegram-desktop
     nextcloud-client
     libreoffice-fresh
+    anki
 
     hunspell
     hunspellDicts.en-gb-ise
