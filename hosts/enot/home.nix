@@ -62,7 +62,6 @@
       "steam-original"
       "steam-run"
       "skypeforlinux"
-      "zoom"
       "bilibili"
     ];
 
@@ -101,7 +100,6 @@
     hunspellDicts.sv-se
 
     skypeforlinux
-    zoom-us
     bilibili
     steam
   ];
