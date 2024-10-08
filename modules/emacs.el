@@ -326,7 +326,7 @@
   (eshell-expand-input . eshell-expand-history-references)
 
   :bind
-  ("C-c t" . eshell))
+  ("C-c e" . eshell))
 
 (use-package pcmpl-args
   :ensure t
@@ -857,10 +857,7 @@ when bash-completion fails to match the text at point."
 (use-package envrc
   :ensure t
   :init
-  (envrc-global-mode)
-  :bind
-  ( :map envrc-mode-map
-    ("C-c e" . 'envrc-command-map)))
+  (envrc-global-mode))
 
 (use-package org-ai
   :ensure t
@@ -915,7 +912,6 @@ when bash-completion fails to match the text at point."
   (setq mu4e-completing-read-function 'completing-read)
   (setq mu4e-get-mail-command "mbsync -a")
   (setq mu4e-change-filenames-when-moving t)
-  (setq mu4e-index-cleanup nil)
   (setq mu4e-hide-index-messages t)
   (setq mu4e-change-filenames-when-moving t)
   (setq message-send-mail-function 'smtpmail-send-it)
