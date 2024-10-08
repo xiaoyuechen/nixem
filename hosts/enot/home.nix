@@ -84,6 +84,9 @@
     man-pages
 
     gnomeExtensions.appindicator
+    gnomeExtensions.app-hider
+    gnomeExtensions.brightness-control-using-ddcutil
+    ddcutil
 
     signal-desktop
     bitwarden

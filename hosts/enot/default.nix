@@ -46,7 +46,10 @@
   services.gnome.gnome-browser-connector.enable = true;
 
   hardware.graphics.enable32Bit = true;
-  hardware.pulseaudio.support32Bit = true;
+  hardware.pulseaudio = {
+    support32Bit = true;
+    extraConfig = "load-module module-combine-sink";
+  };
   hardware.bluetooth.enable = true;
   hardware.i2c.enable = true;
 
@@ -55,6 +58,7 @@
 
   virtualisation = {
     docker.enable = true;
+    waydroid.enable = true;
   };
 
   users.users.xchen = {
