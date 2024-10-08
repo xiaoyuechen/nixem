@@ -61,12 +61,10 @@
       "steam"
       "steam-original"
       "steam-run"
-      "skypeforlinux"
-      "bilibili"
     ];
 
   home.packages = with pkgs; [
-    clang-tools_16
+    clang-tools
     nil
     rust-analyzer
 
@@ -91,9 +89,7 @@
     signal-desktop
     bitwarden
 
-    transmission_4-gtk
-    whatsapp-for-linux
-    telegram-desktop
+    transmission
     nextcloud-client
     libreoffice-fresh
     anki
@@ -102,8 +98,6 @@
     hunspellDicts.en-gb-ise
     hunspellDicts.sv-se
 
-    skypeforlinux
-    bilibili
     steam
   ];
 
