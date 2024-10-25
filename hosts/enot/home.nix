@@ -86,6 +86,7 @@
     gnomeExtensions.brightness-control-using-ddcutil
     ddcutil
 
+    okular
     signal-desktop
     bitwarden
 

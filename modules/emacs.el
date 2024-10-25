@@ -63,6 +63,7 @@
   (setq set-mark-command-repeat-pop t)
   (setq initial-major-mode 'org-mode)
   (setq initial-scratch-message "#+title: Scratch\n\n")
+  (setq completion-ignore-case t)
 
   (menu-bar-mode -1)
   (tool-bar-mode -1)
@@ -120,7 +121,7 @@
     (call-process "xdg-open" nil 0 nil
                   (dired-get-filename nil t)))
 
-  (setq dired-listing-switches "-alh")
+  (setq dired-listing-switches "-alhv1")
 
   (put 'dired-find-alternate-file 'disabled nil)
 
