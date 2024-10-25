@@ -1036,6 +1036,8 @@ when bash-completion fails to match the text at point."
   :ensure t)
 
 (use-package pdf-tools
-  :ensure t)
+  :ensure t
+  :init
+  (pdf-loader-install))
 
 ;;; init.el ends here
