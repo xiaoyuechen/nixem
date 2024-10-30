@@ -69,6 +69,7 @@
 
     gcc
     texlive.combined.scheme-full
+    python312Packages.pygments
     gdb
 
     git-crypt

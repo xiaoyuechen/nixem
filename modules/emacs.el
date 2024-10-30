@@ -811,6 +811,7 @@ when bash-completion fails to match the text at point."
   (setq LaTeX-electric-left-right-brace t)
   (setq reftex-plug-into-AUCTeX t)
   (setq prettify-symbols-unprettify-at-point t)
+  (setq-default TeX-command-extra-options "-shell-escape")
 
   (add-to-list 'TeX-view-program-selection '(output-pdf "xdg-open"))
   :bind
