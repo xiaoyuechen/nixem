@@ -75,6 +75,7 @@
     git-crypt
     ripgrep
     unzip
+    zip
 
     gnumake.info
     gcc.info
