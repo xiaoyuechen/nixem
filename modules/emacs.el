@@ -505,8 +505,6 @@ when bash-completion fails to match the text at point."
                  ("\\subsection{%s}" . "\\subsection*{%s}")
                  ("\\subsubsection{%s}" . "\\subsubsection*{%s}")
                  ("\\paragraph{%s}" . "\\paragraph*{%s}")))
-  (setq org-startup-with-latex-preview t)
-  (plist-put org-format-latex-options :scale 2)
 
   (require 'org-capture)
   (defun org-template-arg (name)

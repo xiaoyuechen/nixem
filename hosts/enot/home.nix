@@ -95,6 +95,7 @@
     nextcloud-client
     libreoffice-fresh
     anki
+    tor-browser-bundle-bin
 
     hunspell
     hunspellDicts.en-gb-ise
