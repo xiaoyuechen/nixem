@@ -91,7 +91,7 @@
     signal-desktop
     bitwarden
 
-    transmission
+    transmission_4-gtk
     nextcloud-client
     libreoffice-fresh
     anki
@@ -102,6 +102,8 @@
     hunspellDicts.sv-se
 
     steam
+    kdenlive
+    inkscape
   ];
 
   home.stateVersion = "23.05";
