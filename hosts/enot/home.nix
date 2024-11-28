@@ -76,6 +76,7 @@
     ripgrep
     unzip
     zip
+    unrar-free
 
     gnumake.info
     gcc.info
@@ -93,7 +94,7 @@
 
     transmission_4-gtk
     nextcloud-client
-    libreoffice-fresh
+    libreoffice
     anki
     tor-browser-bundle-bin
 
