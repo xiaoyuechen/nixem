@@ -56,12 +56,6 @@
   nixem.direnv.enable = true;
   nixem.python-lsp-server.enable = true;
 
-  nixpkgs.config.allowUnfreePredicate = pkg:
-    builtins.elem (lib.getName pkg) [
-      "steam"
-      "steam-unwrapped"
-    ];
-
   home.packages = with pkgs; [
     clang-tools
     nil
@@ -102,9 +96,10 @@
     hunspellDicts.en-gb-ise
     hunspellDicts.sv-se
 
-    steam
     kdenlive
     inkscape
+
+    electrum
   ];
 
   home.stateVersion = "23.05";
