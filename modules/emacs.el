@@ -881,12 +881,6 @@ when bash-completion fails to match the text at point."
   :config
   (setq markdown-fontify-code-blocks-natively t))
 
-(use-package erlang
-  :ensure t)
-
-(use-package swift-mode
-  :ensure t)
-
 (use-package cmake-mode
   :ensure t)
 
