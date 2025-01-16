@@ -1,4 +1,4 @@
-# Copyright (C) 2023, 2024  Xiaoyue Chen
+# Copyright (C) 2023, 2024, 2025  Xiaoyue Chen
 #
 # This program is free software: you can redistribute it and/or modify
 # it under the terms of the GNU General Public License as published by
@@ -61,13 +61,6 @@
     waydroid.enable = true;
   };
 
-  users.users.xchen = {
-    isNormalUser = true;
-    extraGroups = [ "wheel" "networkmanager" "docker" ];
-  };
-
-  home-manager.users.xchen = import ./home.nix;
-
   programs.git.enable = true;
   services.openssh = {
     enable = true;
@@ -78,6 +71,15 @@
   };
 
   nixem.printing.enable = true;
+
+  programs.adb.enable = true;
+
+  users.users.xchen = {
+    isNormalUser = true;
+    extraGroups = [ "wheel" "networkmanager" "docker" "adbusers" "kvm" ];
+  };
+
+  home-manager.users.xchen = import ./home.nix;
 
   # This value determines the NixOS release from which the default
   # settings for stateful data, like file locations and database versions
