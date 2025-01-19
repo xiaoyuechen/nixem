@@ -1,4 +1,4 @@
-# Copyright (C) 2023, 2024  Xiaoyue Chen
+# Copyright (C) 2023, 2024, 2025  Xiaoyue Chen
 #
 # This program is free software: you can redistribute it and/or modify
 # it under the terms of the GNU General Public License as published by
@@ -65,9 +65,13 @@
   security.pam.services.lightdm.gnupg.enable = true;
   services.upower.enable = true;
   programs.git.enable = true;
+  programs.adb.enable = true;
 
-  sound.enable = true;
-  hardware.pulseaudio.enable = true;
+  hardware.nvidia.open = false;
+  hardware.pulseaudio = {
+    support32Bit = true;
+    extraConfig = "load-module module-combine-sink";
+  };
   hardware.bluetooth.enable = true;
 
   hardware.i2c.enable = true;
@@ -76,7 +80,7 @@
 
   users.users.xchen = {
     isNormalUser = true;
-    extraGroups = [ "wheel" "networkmanager" "libvirtd" ];
+    extraGroups = [ "wheel" "networkmanager" "libvirtd" "adbusers" "kvm" ];
   };
 
   home-manager.users.xchen = import ./home.nix;

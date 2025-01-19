@@ -29,9 +29,9 @@ in {
         services.xscreensaver.enable = true;
 
         home.packages = with pkgs; [
-          gnome.adwaita-icon-theme
-          gnome.gnome-themes-extra
-          gnome.gnome-screenshot
+          adwaita-icon-theme
+          gnome-themes-extra
+          gnome-screenshot
           gnomeExtensions.appindicator
           haskellPackages.status-notifier-item
           brightnessctl

@@ -1,4 +1,4 @@
-# Copyright (C) 2023, 2024  Xiaoyue Chen
+# Copyright (C) 2023, 2024, 2025  Xiaoyue Chen
 #
 # This program is free software: you can redistribute it and/or modify
 # it under the terms of the GNU General Public License as published by
@@ -44,7 +44,7 @@
   nixpkgs.config.allowUnfreePredicate = pkg:
     builtins.elem (lib.getName pkg) [
       "steam"
-      "steam-original"
+      "steam-unwrapped"
       "steam-run"
       "skypeforlinux"
     ];
@@ -63,6 +63,7 @@
     unzip
     nssTools
     ddcutil
+    usbutils
     texlive.combined.scheme-full
 
     okular
