@@ -60,12 +60,10 @@
     clang-tools
     nil
     rust-analyzer
-
     gcc
     texlive.combined.scheme-full
     python312Packages.pygments
     gdb
-
     git-crypt
     ripgrep
     unzip
@@ -83,24 +81,21 @@
     gnomeExtensions.brightness-control-using-ddcutil
     ddcutil
 
+    hunspell
+    hunspellDicts.en-gb-ise
+    hunspellDicts.sv-se
+
     okular
     signal-desktop
     bitwarden
-
     transmission_4-gtk
     nextcloud-client
     libreoffice
     anki
     tor-browser-bundle-bin
-
-    hunspell
-    hunspellDicts.en-gb-ise
-    hunspellDicts.sv-se
-
+    electrum
     kdenlive
     inkscape
-
-    electrum
   ];
 
   home.stateVersion = "23.05";

@@ -38,13 +38,6 @@
     };
   };
 
-  services.xserver = {
-    displayManager.gdm.enable = true;
-    desktopManager.gnome.enable = true;
-  };
-
-  services.gnome.gnome-browser-connector.enable = true;
-
   hardware.graphics.enable32Bit = true;
   hardware.pulseaudio = {
     support32Bit = true;
@@ -61,7 +54,11 @@
     waydroid.enable = true;
   };
 
-  programs.git.enable = true;
+  services.xserver = {
+    displayManager.gdm.enable = true;
+    desktopManager.gnome.enable = true;
+  };
+  services.gnome.gnome-browser-connector.enable = true;
   services.openssh = {
     enable = true;
     settings = {
@@ -70,9 +67,18 @@
     };
   };
 
+  programs.git.enable = true;
+  programs.adb.enable = true;
+  programs.steam.enable = true;
+
   nixem.printing.enable = true;
 
-  programs.adb.enable = true;
+  nixpkgs.config.allowUnfreePredicate = pkg: builtins.elem (lib.getName pkg) [
+    "steam"
+    "steam-original"
+    "steam-unwrapped"
+    "steam-run"
+  ];
 
   users.users.xchen = {
     isNormalUser = true;
