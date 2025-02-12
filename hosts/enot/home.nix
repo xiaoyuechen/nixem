@@ -79,6 +79,7 @@
     gnomeExtensions.appindicator
     gnomeExtensions.app-hider
     gnomeExtensions.brightness-control-using-ddcutil
+    gnome-sound-recorder
     ddcutil
 
     hunspell
@@ -96,6 +97,7 @@
     electrum
     kdenlive
     inkscape
+    vlc
   ];
 
   home.stateVersion = "23.05";
