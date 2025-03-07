@@ -437,6 +437,7 @@ when bash-completion fails to match the text at point."
   :commands
   (my-agenda)
   :config
+  (setq org-export-with-author nil)
   (setq org-directory "~/Org")
   (setq org-template-directory (expand-file-name "templates" org-directory))
   (setq org-notes-directory (expand-file-name "notes" org-directory))
