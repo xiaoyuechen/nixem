@@ -86,7 +86,8 @@
     hunspellDicts.en-gb-ise
     hunspellDicts.sv-se
 
-    okular
+    kdePackages.okular
+    kdePackages.kdenlive
     signal-desktop
     bitwarden
     transmission_4-gtk
@@ -95,7 +96,6 @@
     anki
     tor-browser-bundle-bin
     electrum
-    kdenlive
     inkscape
     vlc
   ];
