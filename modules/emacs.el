@@ -1,6 +1,6 @@
 ;;; init.el --- My personal Emacs init file          -*- lexical-binding: t; -*-
 
-;; Copyright (C) 2022, 2023, 2024  Xiaoyue Chen
+;; Copyright (C) 2022, 2023, 2024, 2025  Xiaoyue Chen
 
 ;; Author: Xiaoyue Chen <xchen@vvvu.org>
 
@@ -873,6 +873,7 @@ when bash-completion fails to match the text at point."
   :config
   (org-ai-install-yasnippets)
   (setq org-ai-auto-fill t)
+  (setq org-ai-jump-to-end-of-block nil)
   :bind
   ( :map org-ai-mode-map
     ("C-c r" . nil)))
