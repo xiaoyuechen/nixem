@@ -1041,4 +1041,7 @@ when bash-completion fails to match the text at point."
   :init
   (pdf-loader-install))
 
+(use-package go-mode
+  :ensure t)
+
 ;;; init.el ends here
