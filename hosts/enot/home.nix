@@ -34,16 +34,6 @@
     pinentryPackage = pkgs.pinentry-gnome3;
   };
 
-  xdg = {
-    mimeApps = {
-      enable = true;
-      defaultApplications = {
-        "application/pdf" = "org.gnome.Evince.desktop";
-      };
-    };
-    configFile."mimeapps.list".force = true;
-  };
-
   programs.firefox = {
     enable = true;
     nativeMessagingHosts = [
@@ -98,6 +88,7 @@
     electrum
     inkscape
     vlc
+    geeqie
   ];
 
   home.stateVersion = "23.05";

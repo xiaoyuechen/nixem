@@ -942,10 +942,8 @@ when bash-completion fails to match the text at point."
               (mu4e-trash-folder . "/xchen/Trash")
               (mu4e-refile-folder . "/xchen/Archive")
               (mu4e-sent-messages-behavior . sent)
-              (smtpmail-smtp-server . "smtp.sendgrid.net")
-              (smtpmail-servers-requiring-authorization . "smtp.sendgrid.net")
-              (smtpmail-smtp-service . 587)
-              (smtpmail-stream-type . starttls)
+              (smtpmail-smtp-server . "mail.vvvu.org")
+              (smtpmail-servers-requiring-authorization . "mail.vvvu.org")
               (mu4e-compose-signature
                . (concat "Xiaoyue Chen\n"
                          "VVVU: Workers, Unite!"))))
@@ -964,10 +962,8 @@ when bash-completion fails to match the text at point."
               (mu4e-trash-folder . "/jli/Trash")
               (mu4e-refile-folder . "/jli/Archive")
               (mu4e-sent-messages-behavior . sent)
-              (smtpmail-smtp-server . "smtp.sendgrid.net")
-              (smtpmail-servers-requiring-authorization . "smtp.sendgrid.net")
-              (smtpmail-smtp-service . 587)
-              (smtpmail-stream-type . starttls)
+              (smtpmail-smtp-server . "mail.vvvu.org")
+              (smtpmail-servers-requiring-authorization . "mail.vvvu.org")
               (mu4e-compose-signature
                . (concat "Jeannot Li\n"
                          "VVVU: Workers, Unite!"))))
