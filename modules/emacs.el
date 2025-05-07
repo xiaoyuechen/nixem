@@ -325,6 +325,7 @@
   (eshell-mode . rename-eshell-buffer)
   (eshell-directory-change . rename-eshell-buffer)
   (eshell-expand-input . eshell-expand-history-references)
+  (kill-emacs . eshell-save-some-history)
 
   :bind
   ("C-c e" . eshell))
@@ -924,8 +925,7 @@ when bash-completion fails to match the text at point."
   (setq mu4e-headers-date-format "%F")
   (setq mu4e-maildir-shortcuts
         '((:maildir "/uu/Inbox" :key ?u)
-          (:maildir "/xchen/Inbox" :key ?x)
-          (:maildir "/jli/Inbox" :key ?j)))
+          (:maildir "/xchen/Inbox" :key ?x)))
   (setq mu4e-contexts
         `(,(make-mu4e-context
             :name "xchen"
@@ -944,29 +944,8 @@ when bash-completion fails to match the text at point."
               (mu4e-sent-messages-behavior . sent)
               (smtpmail-smtp-server . "mail.vvvu.org")
               (smtpmail-servers-requiring-authorization . "mail.vvvu.org")
-              (mu4e-compose-signature
-               . (concat "Xiaoyue Chen\n"
-                         "VVVU: Workers, Unite!"))))
-          ,(make-mu4e-context
-            :name "jli"
-            :match-func
-            (lambda (msg)
-              (when msg
-                (string-match-p "^/jli"
-                                (mu4e-message-field msg :maildir))))
-            :vars
-            '((user-mail-address . "jli@vvvu.org")
-              (user-full-name . "Jeannot Li")
-              (mu4e-sent-folder . "/jli/Sent")
-              (mu4e-drafts-folder . "/jli/Drafts")
-              (mu4e-trash-folder . "/jli/Trash")
-              (mu4e-refile-folder . "/jli/Archive")
-              (mu4e-sent-messages-behavior . sent)
-              (smtpmail-smtp-server . "mail.vvvu.org")
-              (smtpmail-servers-requiring-authorization . "mail.vvvu.org")
-              (mu4e-compose-signature
-               . (concat "Jeannot Li\n"
-                         "VVVU: Workers, Unite!"))))
+              (smtpmail-smtp-service . 587)
+              (mu4e-compose-signature . nil)))
           ,(make-mu4e-context
             :name "uu"
             :match-func
@@ -1014,7 +993,7 @@ when bash-completion fails to match the text at point."
 
 (use-package gnus
   :hook
-  (mu4e-compose-mode . sign-mail)
+  ;; (mu4e-compose-mode . sign-mail)
   (dired-mode . turn-on-gnus-dired-mode)
   :config
   (defun sign-mail ()
@@ -1022,7 +1001,7 @@ when bash-completion fails to match the text at point."
            (name (if ctx (mu4e-context-name ctx))))
       (when name
         (cond
-         ((member name '("xchen" "uu" "jli"))
+         ((member name '("xchen" "uu"))
           (mml-secure-sign))))))
 
   (setq mml-secure-openpgp-sign-with-sender t)

@@ -42,6 +42,10 @@
   hardware.graphics.enable32Bit = true;
   hardware.bluetooth.enable = true;
   hardware.i2c.enable = true;
+  hardware.pulseaudio = {
+    support32Bit = true;
+    extraConfig = "load-module module-combine-sink";
+  };
 
   documentation.man.generateCaches = true;
   documentation.dev.enable = true;
@@ -56,11 +60,6 @@
     desktopManager.gnome.enable = true;
   };
   services.gnome.gnome-browser-connector.enable = true;
-
-  services.pulseaudio = {
-    support32Bit = true;
-    extraConfig = "load-module module-combine-sink";
-  };
 
   services.openssh = {
     enable = true;

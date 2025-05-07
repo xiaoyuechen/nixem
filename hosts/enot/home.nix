@@ -31,7 +31,7 @@
   services.gpg-agent = {
     enable = true;
     enableSshSupport = true;
-    pinentry.package = pkgs.pinentry-gnome3;
+    pinentryPackage = pkgs.pinentry-gnome3;
   };
 
   programs.firefox = {
@@ -51,7 +51,7 @@
     nil
     rust-analyzer
     gcc
-    texlive.combined.scheme-full
+    texlive.combined.scheme-medium
     python312Packages.pygments
     gdb
     git-crypt
