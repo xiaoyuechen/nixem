@@ -79,6 +79,7 @@
     kdePackages.okular
     kdePackages.kdenlive
     signal-desktop
+    element-desktop
     bitwarden
     transmission_4-gtk
     nextcloud-client

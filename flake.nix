@@ -1,4 +1,4 @@
-# Copyright (C) 2023, 2024  Xiaoyue Chen
+# Copyright (C) 2023, 2024, 2025  Xiaoyue Chen
 #
 # This program is free software: you can redistribute it and/or modify
 # it under the terms of the GNU General Public License as published by
@@ -30,7 +30,7 @@
 
   outputs = inputs@{ self, nixpkgs, emacs-overlay, home-manager }:
     {
-      formatter.x86_64-linux = nixpkgs.legacyPackages.x86_64-linux.nixpkgs-fmt;
+      formatter.x86_64-linux = nixpkgs.legacyPackages.x86_64-linux.nixfmt-rfc-style;
       nixosConfigurations = import ./configurations.nix inputs;
     };
 }
