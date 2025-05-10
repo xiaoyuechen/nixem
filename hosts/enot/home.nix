@@ -51,7 +51,7 @@
     nil
     rust-analyzer
     gcc
-    texlive.combined.scheme-medium
+    texlive.combined.scheme-full
     python312Packages.pygments
     gdb
     git-crypt
