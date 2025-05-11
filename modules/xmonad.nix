@@ -17,9 +17,11 @@
 
 with lib;
 
-let cfg = config.nixem.xmonad;
+let
+  cfg = config.nixem.xmonad;
 
-in {
+in
+{
   options = {
     nixem.xmonad.enable = mkEnableOption "xmonad";
   };

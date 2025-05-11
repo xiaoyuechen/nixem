@@ -34,6 +34,10 @@ let
 
 in
 {
-  os = { imports = osModules; };
-  home = { imports = hmModules; };
+  os = {
+    imports = osModules;
+  };
+  home = {
+    imports = hmModules;
+  };
 }

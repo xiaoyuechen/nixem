@@ -2,9 +2,11 @@
 
 with lib;
 
-let cfg = config.nixem.taffybar;
+let
+  cfg = config.nixem.taffybar;
 
-in {
+in
+{
   options = {
     nixem.taffybar.enable = mkEnableOption "taffybar";
   };
@@ -12,10 +14,9 @@ in {
   config = mkIf cfg.enable {
     services.taffybar.enable = true;
 
-    xdg.configFile =
-      {
-        "taffybar/taffybar.hs".source = ./taffybar.hs;
-        "taffybar/taffybar.css".source = ./taffybar.css;
-      };
+    xdg.configFile = {
+      "taffybar/taffybar.hs".source = ./taffybar.hs;
+      "taffybar/taffybar.css".source = ./taffybar.css;
+    };
   };
 }

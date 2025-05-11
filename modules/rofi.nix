@@ -17,9 +17,11 @@
 
 with lib;
 
-let cfg = config.nixem.rofi;
+let
+  cfg = config.nixem.rofi;
 
-in {
+in
+{
   options = {
     nixem.rofi.enable = mkEnableOption "rofi";
   };

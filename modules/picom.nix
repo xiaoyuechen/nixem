@@ -17,9 +17,11 @@
 
 with lib;
 
-let cfg = config.nixem.picom;
+let
+  cfg = config.nixem.picom;
 
-in {
+in
+{
   options = {
     nixem.picom.enable = mkEnableOption "picom";
   };
@@ -29,7 +31,10 @@ in {
       enable = true;
       backend = "glx";
       fade = true;
-      fadeSteps = [ 0.16 0.02 ];
+      fadeSteps = [
+        0.16
+        0.02
+      ];
       fadeDelta = 2;
       inactiveOpacity = 0.8;
       opacityRules = [ "100:class_g = 'Rofi'" ];

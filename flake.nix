@@ -28,7 +28,13 @@
     };
   };
 
-  outputs = inputs@{ self, nixpkgs, emacs-overlay, home-manager }:
+  outputs =
+    inputs@{
+      self,
+      nixpkgs,
+      emacs-overlay,
+      home-manager,
+    }:
     {
       formatter.x86_64-linux = nixpkgs.legacyPackages.x86_64-linux.nixfmt-rfc-style;
       nixosConfigurations = import ./configurations.nix inputs;

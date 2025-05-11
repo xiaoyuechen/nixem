@@ -13,7 +13,8 @@
 # You should have received a copy of the GNU General Public License
 # along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
-{ pkgs, lib, ... }: {
+{ pkgs, lib, ... }:
+{
   imports = [
     ./hardware-configuration.nix
     ./video.nix
@@ -41,17 +42,20 @@
 
   console.useXkbConfig = true;
 
-  swapDevices = [{
-    device = "/var/lib/swapfile";
-    size = 16 * 1024;
-  }];
+  swapDevices = [
+    {
+      device = "/var/lib/swapfile";
+      size = 16 * 1024;
+    }
+  ];
 
   documentation.man.generateCaches = true;
   documentation.dev.enable = true;
 
   # nix.settings.substituters = [ "https://mirrors.cernet.edu.cn/nix-channels/store" ];
 
-  nixpkgs.config.allowUnfreePredicate = pkg:
+  nixpkgs.config.allowUnfreePredicate =
+    pkg:
     builtins.elem (lib.getName pkg) [
       "nvidia-x11"
       "nvidia-settings"
@@ -80,7 +84,13 @@
 
   users.users.xchen = {
     isNormalUser = true;
-    extraGroups = [ "wheel" "networkmanager" "libvirtd" "adbusers" "kvm" ];
+    extraGroups = [
+      "wheel"
+      "networkmanager"
+      "libvirtd"
+      "adbusers"
+      "kvm"
+    ];
   };
 
   home-manager.users.xchen = import ./home.nix;

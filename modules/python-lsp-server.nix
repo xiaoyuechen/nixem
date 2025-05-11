@@ -13,22 +13,29 @@
 # You should have received a copy of the GNU General Public License
 # along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
-{ config, lib, pkgs, ... }:
+{
+  config,
+  lib,
+  pkgs,
+  ...
+}:
 
 with lib;
 
-let cfg = config.nixem.python-lsp-server;
+let
+  cfg = config.nixem.python-lsp-server;
 
-in {
+in
+{
   options = {
     nixem.python-lsp-server.enable = mkEnableOption "python-lsp-server";
   };
 
   config = mkIf cfg.enable {
     home.packages = [
-      (pkgs.python3.withPackages (ps: with ps;
-      [ python-lsp-server ]
-      ++ python-lsp-server.optional-dependencies.all))
+      (pkgs.python3.withPackages (
+        ps: with ps; [ python-lsp-server ] ++ python-lsp-server.optional-dependencies.all
+      ))
     ];
   };
 }

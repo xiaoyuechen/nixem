@@ -13,13 +13,20 @@
 # You should have received a copy of the GNU General Public License
 # along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
-{ config, lib, pkgs, ... }:
+{
+  config,
+  lib,
+  pkgs,
+  ...
+}:
 
 with lib;
 
-let cfg = config.nixem.substituters;
+let
+  cfg = config.nixem.substituters;
 
-in {
+in
+{
   options = {
     nixem.substituters.enable = mkEnableOption "substituters";
   };

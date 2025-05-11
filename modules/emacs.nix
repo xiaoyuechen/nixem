@@ -13,13 +13,21 @@
 # You should have received a copy of the GNU General Public License
 # along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
-{ config, lib, pkgs, emacs-overlay, ... }:
+{
+  config,
+  lib,
+  pkgs,
+  emacs-overlay,
+  ...
+}:
 
 with lib;
 
-let cfg = config.nixem.emacs;
+let
+  cfg = config.nixem.emacs;
 
-in {
+in
+{
   options = {
     nixem.emacs.enable = mkEnableOption "emacs";
   };
@@ -29,11 +37,13 @@ in {
 
     programs.emacs = {
       enable = true;
-      package = with pkgs; (emacsWithPackagesFromUsePackage {
-        config = ./emacs.el;
-        defaultInitFile = true;
-        package = emacs-unstable;
-      });
+      package =
+        with pkgs;
+        (emacsWithPackagesFromUsePackage {
+          config = ./emacs.el;
+          defaultInitFile = true;
+          package = emacs-unstable;
+        });
     };
 
     services.emacs = {

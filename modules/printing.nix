@@ -1,10 +1,17 @@
-{ config, lib, pkgs, ... }:
+{
+  config,
+  lib,
+  pkgs,
+  ...
+}:
 
 with lib;
 
-let cfg = config.nixem.printing;
+let
+  cfg = config.nixem.printing;
 
-in {
+in
+{
   options = {
     nixem.printing.enable = mkEnableOption "printing";
   };

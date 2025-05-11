@@ -13,7 +13,12 @@
 # You should have received a copy of the GNU General Public License
 # along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
-{ nixpkgs, home-manager, emacs-overlay, ... }:
+{
+  nixpkgs,
+  home-manager,
+  emacs-overlay,
+  ...
+}:
 
 let
   nixem = import ./modules;
@@ -54,11 +59,15 @@ let
 
     services.libinput.enable = true;
 
-    nix.settings.experimental-features = [ "nix-command" "flakes" ];
+    nix.settings.experimental-features = [
+      "nix-command"
+      "flakes"
+    ];
   };
 
-  mkNixosSystem = configModule: nixpkgs.lib.nixosSystem
-    {
+  mkNixosSystem =
+    configModule:
+    nixpkgs.lib.nixosSystem {
       system = "x86_64-linux";
       modules = [
         defaultConfig
@@ -66,14 +75,13 @@ let
       ];
     };
 
-  mkNixosConfigurations = hosts:
+  mkNixosConfigurations =
+    hosts:
     builtins.listToAttrs (
-      map
-        (h: {
-          name = h;
-          value = mkNixosSystem ./hosts/${h};
-        })
-        hosts
+      map (h: {
+        name = h;
+        value = mkNixosSystem ./hosts/${h};
+      }) hosts
     );
 
 in

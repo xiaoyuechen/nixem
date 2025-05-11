@@ -13,7 +13,12 @@
 # You should have received a copy of the GNU General Public License
 # along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
-{ config, pkgs, lib, ... }:
+{
+  config,
+  pkgs,
+  lib,
+  ...
+}:
 
 {
   imports = [
@@ -75,16 +80,24 @@
 
   nixem.printing.enable = true;
 
-  nixpkgs.config.allowUnfreePredicate = pkg: builtins.elem (lib.getName pkg) [
-    "steam"
-    "steam-original"
-    "steam-unwrapped"
-    "steam-run"
-  ];
+  nixpkgs.config.allowUnfreePredicate =
+    pkg:
+    builtins.elem (lib.getName pkg) [
+      "steam"
+      "steam-original"
+      "steam-unwrapped"
+      "steam-run"
+    ];
 
   users.users.xchen = {
     isNormalUser = true;
-    extraGroups = [ "wheel" "networkmanager" "docker" "adbusers" "kvm" ];
+    extraGroups = [
+      "wheel"
+      "networkmanager"
+      "docker"
+      "adbusers"
+      "kvm"
+    ];
   };
 
   home-manager.users.xchen = import ./home.nix;

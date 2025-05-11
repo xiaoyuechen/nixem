@@ -13,13 +13,20 @@
 # You should have received a copy of the GNU General Public License
 # along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
-{ config, lib, pkgs, ... }:
+{
+  config,
+  lib,
+  pkgs,
+  ...
+}:
 
 with lib;
 
-let cfg = config.nixem.email;
+let
+  cfg = config.nixem.email;
 
-in {
+in
+{
   options = {
     nixem.email.enable = lib.mkEnableOption "email";
   };
@@ -37,7 +44,14 @@ in {
           create = "both";
           remove = "both";
           expunge = "both";
-          patterns = [ "INBOX" "Drafts" "Junk" "Sent" "Archive" "Trash" ];
+          patterns = [
+            "INBOX"
+            "Drafts"
+            "Junk"
+            "Sent"
+            "Archive"
+            "Trash"
+          ];
         };
         mu.enable = true;
       };
@@ -52,8 +66,17 @@ in {
           create = "both";
           remove = "both";
           expunge = "both";
-          patterns = [ "INBOX" "Drafts" "Junk Email" "Sent Items" "Archive" "Deleted Items" ];
-          extraConfig.account = { AuthMechs = "PLAIN"; };
+          patterns = [
+            "INBOX"
+            "Drafts"
+            "Junk Email"
+            "Sent Items"
+            "Archive"
+            "Deleted Items"
+          ];
+          extraConfig.account = {
+            AuthMechs = "PLAIN";
+          };
         };
         mu.enable = true;
       };
@@ -62,12 +85,12 @@ in {
     services.mbsync = {
       enable = true;
       postExec = "${pkgs.writers.writeBash "mu-index" ''
-          if ${pkgs.procps}/bin/pgrep -f 'mu server'; then
-            ${config.services.emacs.package}/bin/emacsclient -e '(mu4e-update-index)'
-          else
-            ${config.programs.mu.package}/bin/mu index
-          fi
-        ''}";
+        if ${pkgs.procps}/bin/pgrep -f 'mu server'; then
+          ${config.services.emacs.package}/bin/emacsclient -e '(mu4e-update-index)'
+        else
+          ${config.programs.mu.package}/bin/mu index
+        fi
+      ''}";
     };
 
     programs.mbsync.enable = true;
