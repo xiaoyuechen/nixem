@@ -74,6 +74,30 @@
     };
   };
 
+  services.dictd =
+    with pkgs;
+    let
+      swe2eng = stdenv.mkDerivation rec {
+        name = "dctd-db-swe2eng";
+        src = fetchurl {
+          url = "https://download.freedict.org/dictionaries/swe-eng/0.2/freedict-swe-eng-0.2.dictd.tar.xz";
+          sha256 = "Y/cvh2fBN4Mo9T8e0co2hk1By5w9VKfOibtTHhgv+o4=";
+        };
+        unpackPhase = ''
+          tar xf  ${src}
+        '';
+        installPhase = ''
+          mkdir -p $out/share/dictd
+          cp $(ls ./swe-eng/*.{dict*,index} || true) $out/share/dictd
+          echo "sv_SV" >$out/share/dictd/locale
+        '';
+      };
+    in
+    {
+    enable = true;
+    DBs = with pkgs.dictdDBs; [ swe2eng ];
+  };
+
   programs.git.enable = true;
   programs.adb.enable = true;
   programs.steam.enable = true;
