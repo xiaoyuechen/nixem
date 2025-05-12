@@ -94,9 +94,9 @@
       };
     in
     {
-    enable = true;
-    DBs = with pkgs.dictdDBs; [ swe2eng ];
-  };
+      enable = true;
+      DBs = [ swe2eng ];
+    };
 
   programs.git.enable = true;
   programs.adb.enable = true;
