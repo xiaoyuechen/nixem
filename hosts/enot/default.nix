@@ -95,7 +95,7 @@
     in
     {
       enable = true;
-      DBs = [ swe2eng ];
+      DBs = [ swe2eng dictdDBs.wiktionary];
     };
 
   programs.git.enable = true;
