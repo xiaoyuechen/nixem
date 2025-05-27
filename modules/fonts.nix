@@ -44,6 +44,7 @@ in
       fira-code-symbols
       dina-font
       proggyfonts
-    ];
+    ] ++ builtins.filter lib.attrsets.isDerivation
+      (builtins.attrValues pkgs.nerd-fonts);
   };
 }
