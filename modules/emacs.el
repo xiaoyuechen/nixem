@@ -1019,4 +1019,7 @@ when bash-completion fails to match the text at point."
 (use-package go-mode
   :ensure t)
 
+(use-package cuda-mode
+  :ensure t)
+
 ;;; init.el ends here
