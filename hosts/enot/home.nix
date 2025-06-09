@@ -41,6 +41,11 @@
     ];
   };
 
+  nixem.signal-desktop = {
+    enable = true;
+    instance = 2;
+  };
+
   nixem.emacs.enable = true;
   nixem.email.enable = true;
   nixem.direnv.enable = true;
@@ -78,7 +83,6 @@
 
     kdePackages.okular
     kdePackages.kdenlive
-    signal-desktop
     element-desktop
     bitwarden
     transmission_4-gtk
@@ -88,6 +92,7 @@
     tor-browser-bundle-bin
     electrum
     inkscape
+    gimp
     vlc
     geeqie
   ];
