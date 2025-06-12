@@ -109,6 +109,7 @@
       "steam-original"
       "steam-unwrapped"
       "steam-run"
+      "hplip"
     ];
 
   users.users.xchen = {

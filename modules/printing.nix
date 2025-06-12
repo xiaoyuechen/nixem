@@ -19,7 +19,7 @@ in
   config = mkIf cfg.enable {
     services.printing = {
       enable = true;
-      drivers = with pkgs; [ gutenprint ];
+      drivers = with pkgs; [ gutenprint hplipWithPlugin ];
     };
 
     services.avahi = {
@@ -32,12 +32,19 @@ in
       ensurePrinters = [
         {
           name = "eduPrint-UU";
+          location = "UU";
           deviceUri = "smb://edp-uu-prn01.user.uu.se/eduPrint-UU";
           model = "gutenprint.5.3://ricoh-mp_c5504/expert";
         }
+        {
+          name = "HP-DeskJet-2800";
+          location = "Home";
+          deviceUri = "ipp://192.168.1.121/ipp/print";
+          model = "drv:///hp/hpcups.drv/hp-Deskjet_2800_series.ppd";
+        }
       ];
 
-      ensureDefaultPrinter = "eduPrint-UU";
+      ensureDefaultPrinter = "HP-DeskJet-2800";
     };
 
     services.samba.enable = true;
