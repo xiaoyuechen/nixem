@@ -46,15 +46,6 @@
   nixem.email.enable = true;
   nixem.direnv.enable = true;
 
-  nixpkgs.config.allowUnfreePredicate =
-    pkg:
-    builtins.elem (lib.getName pkg) [
-      "steam"
-      "steam-unwrapped"
-      "steam-run"
-      "skypeforlinux"
-    ];
-
   home.packages = with pkgs; [
     glibcInfo
     gnumake
@@ -78,10 +69,8 @@
     gimp
     virt-manager
     telegram-desktop
-    skypeforlinux
     transmission-gtk
     libreoffice
-    steam
   ];
 
   home.stateVersion = "23.05";
