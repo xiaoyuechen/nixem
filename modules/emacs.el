@@ -865,9 +865,7 @@ when bash-completion fails to match the text at point."
 (use-package envrc
   :ensure t
   :init
-  (envrc-global-mode)
-  :config
-  (setq envrc-remote t))
+  (envrc-global-mode))
 
 (use-package org-ai
   :ensure t
