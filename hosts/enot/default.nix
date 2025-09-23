@@ -98,6 +98,7 @@
 
   programs.git.enable = true;
   programs.adb.enable = true;
+  programs.steam.enable = true;
 
   nixem.printing.enable = true;
 
@@ -105,6 +106,9 @@
     pkg:
     builtins.elem (lib.getName pkg) [
       "hplip"
+      "steam"
+      "steam-original"
+      "steam-unwrapped"
     ];
 
   users.users.xchen = {
