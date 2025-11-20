@@ -65,6 +65,8 @@
     zip
     unrar-free
     usbutils
+    flex
+    bison
 
     gnumake.info
     gcc.info
