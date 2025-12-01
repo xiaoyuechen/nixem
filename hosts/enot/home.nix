@@ -23,8 +23,10 @@
 
   programs.git = {
     enable = true;
-    userName = "Xiaoyue Chen";
-    userEmail = "xchen@vvvu.org";
+    settings.user = {
+      name = "Xiaoyue Chen";
+      email = "xchen@vvvu.org";
+    };
   };
 
   programs.gpg.enable = true;
@@ -86,12 +88,12 @@
     kdePackages.okular
     kdePackages.kdenlive
     element-desktop
-    bitwarden
+    bitwarden-desktop
     transmission_4-gtk
     nextcloud-client
     libreoffice
     anki
-    tor-browser-bundle-bin
+    tor-browser
     electrum
     inkscape
     gimp

@@ -53,13 +53,10 @@
 
   virtualisation = {
     docker.enable = true;
-    waydroid.enable = true;
   };
 
-  services.xserver = {
-    displayManager.gdm.enable = true;
-    desktopManager.gnome.enable = true;
-  };
+  services.displayManager.gdm.enable = true;
+  services.desktopManager.gnome.enable = true;
   services.gnome.gnome-browser-connector.enable = true;
 
   services.pulseaudio.support32Bit = true;

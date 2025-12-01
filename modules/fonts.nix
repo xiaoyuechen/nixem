@@ -34,7 +34,7 @@ in
   config = mkIf cfg.enable {
     fonts.packages = with pkgs; [
       noto-fonts
-      noto-fonts-emoji
+      noto-fonts-color-emoji
       noto-fonts-cjk-sans
       noto-fonts-cjk-serif
       source-han-sans
