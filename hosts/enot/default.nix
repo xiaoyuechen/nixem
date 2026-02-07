@@ -31,7 +31,12 @@
   boot.binfmt.emulatedSystems = [ "aarch64-linux" ];
 
   networking.hostName = "enot";
-  networking.networkmanager.enable = true;
+  networking.networkmanager = {
+    enable = true;
+    plugins = with pkgs; [
+      networkmanager-openconnect
+    ];
+  };
 
   time.timeZone = "Europe/Stockholm";
 
