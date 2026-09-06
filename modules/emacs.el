@@ -1,6 +1,6 @@
 ;;; init.el --- My personal Emacs init file          -*- lexical-binding: t; -*-
 
-;; Copyright (C) 2022, 2023, 2024, 2025  Xiaoyue Chen
+;; Copyright (C) 2022, 2023, 2024, 2025, 2026  Xiaoyue Chen
 
 ;; Author: Xiaoyue Chen <xchen@vvvu.org>
 
@@ -1007,6 +1007,9 @@ when bash-completion fails to match the text at point."
   (setq mml-secure-openpgp-sign-with-sender t)
   (setq mm-verify-option 'known
         mm-decrypt-option 'known))
+
+(use-package htmlize
+  :ensure t)
 
 (use-package rmsbolt
   :ensure t)

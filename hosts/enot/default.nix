@@ -1,4 +1,4 @@
-# Copyright (C) 2023, 2024, 2025  Xiaoyue Chen
+# Copyright (C) 2023, 2024, 2025, 2026  Xiaoyue Chen
 #
 # This program is free software: you can redistribute it and/or modify
 # it under the terms of the GNU General Public License as published by
@@ -35,6 +35,7 @@
     enable = true;
     plugins = with pkgs; [
       networkmanager-openconnect
+      networkmanager-openvpn
     ];
   };
 
@@ -44,8 +45,11 @@
     defaultLocale = "en_GB.UTF-8";
     inputMethod = {
       enable = true;
-      type = "ibus";
-      ibus.engines = with pkgs.ibus-engines; [ libpinyin ];
+      type = "fcitx5";
+      fcitx5.addons = with pkgs; [
+        fcitx5-gtk
+        qt6Packages.fcitx5-chinese-addons
+      ];
     };
   };
 
@@ -65,6 +69,8 @@
   services.gnome.gnome-browser-connector.enable = true;
 
   services.pulseaudio.support32Bit = true;
+
+  services.thinkfan.enable = true;
 
   services.openssh = {
     enable = true;
@@ -101,6 +107,10 @@
   programs.git.enable = true;
   programs.adb.enable = true;
   programs.steam.enable = true;
+  programs.gamescope = {
+    enable = true;
+    capSysNice = true;
+  };
 
   nixem.printing.enable = true;
 

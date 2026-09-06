@@ -1,4 +1,4 @@
-# Copyright (C) 2023, 2024, 2025  Xiaoyue Chen
+# Copyright (C) 2023, 2024, 2025, 2026  Xiaoyue Chen
 #
 # This program is free software: you can redistribute it and/or modify
 # it under the terms of the GNU General Public License as published by
@@ -99,6 +99,13 @@
     gimp
     vlc
     geeqie
+
+    wineWow64Packages.stable
+    winetricks
+    aria2
+    proxychains
+    mangohud
+    telegram-desktop
   ];
 
   home.stateVersion = "23.05";
