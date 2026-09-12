@@ -41,6 +41,7 @@
     nativeMessagingHosts = [
       pkgs.gnome-browser-connector
     ];
+    configPath = ".mozilla/firefox";
   };
 
   nixem.signal-desktop = {
@@ -106,6 +107,7 @@
     proxychains
     mangohud
     telegram-desktop
+    android-tools
   ];
 
   home.stateVersion = "23.05";

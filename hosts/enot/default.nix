@@ -45,11 +45,8 @@
     defaultLocale = "en_GB.UTF-8";
     inputMethod = {
       enable = true;
-      type = "fcitx5";
-      fcitx5.addons = with pkgs; [
-        fcitx5-gtk
-        qt6Packages.fcitx5-chinese-addons
-      ];
+      type = "ibus";
+      ibus.engines = with pkgs.ibus-engines; [ rime ];
     };
   };
 
@@ -57,7 +54,7 @@
   hardware.bluetooth.enable = true;
   hardware.i2c.enable = true;
 
-  documentation.man.generateCaches = true;
+  documentation.man.cache.enable = true;
   documentation.dev.enable = true;
 
   virtualisation = {
@@ -105,7 +102,6 @@
     };
 
   programs.git.enable = true;
-  programs.adb.enable = true;
   programs.steam.enable = true;
   programs.gamescope = {
     enable = true;
